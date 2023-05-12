@@ -1,6 +1,6 @@
 # Pesto 1.0.0
 ## What Is Pesto?
-Pesto is a secure password strength estimator blending features from Zxcvbn and Azure AD Password Protection used for sensitive applications that require mutable data structures. Pesto was developed in C# for .NET applications, but can easily be coded in other programming languages. Pesto is just a password strength estimator, so you will need to implement your own virtual keyboard and call the evaluate function on key press events.
+Pesto is a secure password strength estimator blending features from Zxcvbn and Azure AD Password Protection used for sensitive applications that require mutable data structures. Pesto was developed in C# for .NET applications, but can easily be coded in other programming languages. Pesto is just a password strength estimator (for now), so you will need to implement your own virtual keyboard and call the evaluate function on key press events.
 
 ## The Legend of Pesto
 <p align="justify">
@@ -42,11 +42,6 @@ Call this function when your application launches. The BadPassword.csv file will
 Pesto.Init([RESOURCE-ID-GOES-HERE])
 ```
 
-Algorithm:
-1. **Normalize List**: When app starts load all words from the banned word list. Create the new list (no duplicates) by using all normalization words for each word.
-2. **Order List**: Order the list in descending order by word length.
-
-
 ### Evaluate
 Call this function to evaluate your password. 
 
@@ -65,6 +60,12 @@ using (var pesto = new Pesto())
 ```
 
 ## The Algorithm
+
+### Initialize
+1. **Normalize List**: When the application starts load all words from the banned word list with 3 or more characters. Create the new list (no duplicates) by using all normalization words for each word. This means removing all Leetspeak and making every word lowercase. This list will be static and can be called by Pesto class directly so that all future instances of Pesto can use the normalized list.
+2. **Order List**: Order the list in descending order by word length. This is important for how the algorithm checks for bad passwords. 
+
+### Evaluate
 1. **Normalize Password**: Normalize the password based on Leet values.
 2. **Match Password**: For each character in the normalized password:
       - Initialize good character count to zero.
@@ -159,3 +160,8 @@ The bad password list used here includes all bad passwords used by the Zxcvbn pr
 - https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html
 - https://crackstation.net/hashing-security.htm
 - https://nordpass.com/blog/what-is-a-dictionary-attack/
+
+Pesto is free, open source software. I will continue to reveal the magical powers of Pesto (more features) in future releases. If you found it helpful for your project...I always appreciate ZEC to help keep it going! :)
+
+![zec](https://github.com/aardev14/Pesto/assets/51981572/bd688a54-b524-47bd-be79-6a62bc8d8c19)
+
