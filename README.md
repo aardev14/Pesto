@@ -51,8 +51,12 @@ You should put all instances of Pesto in a `using` statement to release resource
 
 
 ``` C#
-char[] password = { 'P', 'r', 'e', 's', 't', 'o', 'P', 'e', 's', 't', 'o', '!' };
+char[] password = { 'P', 'r', 'e', 's', 't', 'o', 'P', 'e', 's', 't', 'o', '!' }; //get this from your own keyboard UI
+
+int matchPoints = 3;
+int minChars = 14;
 int pestoScore = 0;
+
 using (var pesto = new Pesto())
 {
     pestoScore = pesto.Evaluate(passwords[i].ToCharArray(), matchPoints, minChars, true, true, true, true, false);
