@@ -194,6 +194,7 @@ The bad password list used in Pesto includes all bad passwords used by the Zxcvb
 - https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html
 - https://crackstation.net/hashing-security.htm
 - https://nordpass.com/blog/what-is-a-dictionary-attack/
+- https://github.com/trichards57/zxcvbn-cs/tree/master/zxcvbn-core/Dictionaries
 
 Pesto is free, open source software. I will continue to reveal the magical powers of Pesto (more features) in future releases. If you found it helpful for your project...I always appreciate ZEC to help keep it going! :)
 
