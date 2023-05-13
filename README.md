@@ -47,6 +47,12 @@ Call this function when your application launches. The BadPassword.csv file will
 Pesto.Init()
 ```
 
+In order to call this function, make sure your class is using Pesto. If it is not there already, then add the following `using` directive at the top of your .cs file:
+
+``` C#
+using PestoNet; 
+```
+
 ### Evaluate
 Call this function to evaluate your password. 
 
