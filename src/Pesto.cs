@@ -254,13 +254,6 @@ namespace PestoEstimator
                                 }
                                 usedIndexes.Clear();
 
-                                //Do we need this next for?
-                                int newLength = 0;
-                                foreach (char c in password) //Set the removables to SubstituteChar
-                                {
-                                    if (c != ReplacementChar) newLength++;
-                                }
-
                                 char[] temp = new char[password.Length];
                                 int tempIndex = 0;
                                 for (int i = 0; i < password.Length; ++i)//store the new password in temp
