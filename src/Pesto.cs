@@ -54,8 +54,11 @@ namespace PestoNet
         /// //Call on launch of the application to ready all future instances of Pesto to use the static bad password list, normalized and ordered in descending length.
         /// </summary>
         /// <param name="resourceId">Set the properties of the BadPassword.csv file to EmbeddedResource, Do Not Copy. Pass in the resource ID of the file here.</param>
-        public static void Init(String resourceId)
+        public static void Init()
         {
+            //Set the resource ID for BannedWords.csv.
+            string resourceId = "[RESOURCE-ID-GOES-HERE]";
+        
             //Read the BannedWords.csv file into a string.
             var assembly = IntrospectionExtensions.GetTypeInfo(typeof(Pesto)).Assembly;
             Stream stream = assembly.GetManifestResourceStream(resourceId);
