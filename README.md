@@ -1,6 +1,6 @@
 # Pesto 1.0.0
 ## What Is Pesto?
-Pesto is a secure password strength estimator blending features from Zxcvbn and Azure AD Password Protection used for sensitive applications that require mutable data structures. Pesto was developed in C# for .NET applications, but can easily be coded in other programming languages. Pesto is just a password strength estimator (for now), so you will need to implement your own virtual keyboard and call the evaluate function on key press events.
+Pesto is a secure password strength estimator blending features from [Zxcvbn](https://dropbox.tech/security/zxcvbn-realistic-password-strength-estimation) and [Azure AD Password Protection](https://learn.microsoft.com/en-us/azure/active-directory/authentication/concept-password-ban-bad) used for sensitive applications that require mutable data structures. Pesto was developed in C# for .NET applications, but can easily be coded in other programming languages. Pesto is just a password strength estimator (for now), so you will need to implement your own virtual keyboard and call the evaluate function on key press events.
 
 ## The Legend of Pesto
 <p align="justify">
@@ -30,7 +30,7 @@ Algorithm created by blending features from Zxcbn and Azure AD Password Protecti
 
 ## Getting Started
 ### Load Into Project
-1. Locate the src folder found here and load in the following two files to your project: Pesto.cs and BadPasswords.csv.
+1. Locate the [src](https://github.com/aardev14/Pesto/tree/main/src) folder found here and load in the following two files to your project: [Pesto.cs](https://github.com/aardev14/Pesto/blob/main/src/Pesto.cs) and [BadPasswords.csv](https://github.com/aardev14/Pesto/blob/main/src/BannedWords.csv).
 2. Change the properties of the BadPasswords.csv file to **Build Action: Embedded Resource** and **Copy to output directory: Do not copy**.
 3. Copy the Resource ID of BadPasswords.csv under Properties. You will need this for the Pesto.Initalize(*[RESOURCE-ID-GOES-HERE]*) call.
 
@@ -168,7 +168,7 @@ Comparing Pesto to a well-known and trusted password strength estimator like Zxc
 
 #### Understanding Real-World Performance 
 
-Testing Pesto against a large dataset of passwords, such as the 720,000 passwords from the SecLists repository (https://github.com/danielmiessler/SecLists/blob/master/Passwords/Leaked-Databases/000webhost.txt), helps to understand how Pesto performs in real-world scenarios. This can reveal any potential biases or shortcomings in Pesto's approach to password strength estimation and inform potential improvements.
+Testing Pesto against a large dataset of passwords, such as the 720,000 passwords from the [SecLists repository](https://github.com/danielmiessler/SecLists) (https://github.com/danielmiessler/SecLists/blob/master/Passwords/Leaked-Databases/000webhost.txt), helps to understand how Pesto performs in real-world scenarios. This can reveal any potential biases or shortcomings in Pesto's approach to password strength estimation and inform potential improvements.
 
 ### Test Results
 Below is a chart and the associated table showing the results of testing Zxcvbn vs. Pesto (when he is Bored, Curious, and Alert) against the 000webhost.txt dataset of passwords from SecList.
@@ -177,7 +177,7 @@ Below is a chart and the associated table showing the results of testing Zxcvbn 
 
 <img width="1229" alt="pestotable01" src="https://github.com/aardev14/Pesto/assets/51981572/10c7ac4f-92b1-40ff-b4c2-f3f0aba64c96">
 
-Tests can be found in this repository, so you can run them yourself if you would like to confirm the data shown on the chart. In summary, comparing Pesto to Zxcvbn is essential for establishing Pesto's credibility as a password strength estimator, understanding its strengths and weaknesses, and guiding its development and improvement. If you would like to test Pesto with the 720,000 passwords from the SecLists repository, download the dataset, then process and evaluate each password using both Pesto and Zxcvbn. Record the scores and compare their performance.
+[Tests](https://github.com/aardev14/Pesto/tree/main/test) can be found in this repository, so you can run them yourself if you would like to confirm the data shown on the chart. In summary, comparing Pesto to Zxcvbn is essential for establishing Pesto's credibility as a password strength estimator, understanding its strengths and weaknesses, and guiding its development and improvement. If you would like to test Pesto with the 720,000 passwords from the SecLists repository, download the dataset, then process and evaluate each password using both Pesto and Zxcvbn. Record the scores and compare their performance.
 
 ## Technical Research
 ### Password Normalization
@@ -185,8 +185,11 @@ Follows normalization based on Leet rules found here:
 - https://docs.lithnet.io/password-protection/help-and-support/normalization-rules
 - https://github.com/trichards57/zxcvbn-cs/blob/master/zxcvbn-core/Matcher/L33tMatcher.cs
 - https://en.wikipedia.org/wiki/Leet
+
 ### Bad Password List
+
 The bad password list used in Pesto includes all bad passwords used by the Zxcvbn project - plus a few of our own!
+
 ### Helpful Links
 - https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html
 - https://crackstation.net/hashing-security.htm
