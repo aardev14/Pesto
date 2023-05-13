@@ -53,7 +53,7 @@ namespace PestoTests
                 int pestoScore = 0;
                 using (var pesto = new Pesto())
                 {
-                    pestoScore = pesto.Evaluate(passwords[i].ToCharArray(), matchPoints, minChars, true, true, true, true, true);
+                    pestoScore = pesto.Evaluate(passwords[i].ToCharArray(), matchPoints, minChars, true, true, true, true, false);
                 }
 
                 //Increment the counter.
@@ -116,7 +116,7 @@ namespace PestoTests
                 int pestoScore = 0;
                 using (var pesto = new Pesto())
                 {
-                    pestoScore = pesto.Evaluate(passwords[i].ToCharArray(), matchPoints, minChars, true, true, true, true, true);
+                    pestoScore = pesto.Evaluate(passwords[i].ToCharArray(), matchPoints, minChars, true, true, true, true, false);
                 }
             }
             watch.Stop();
