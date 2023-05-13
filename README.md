@@ -21,7 +21,7 @@ Pesto is a magical talking parrot who can be called upon for his password estima
 1. **Fuzzy** - Pesto, like all parrots, has fuzzy feathers! This password estimator tracks fuzz (1 edit distance) to find bad passwords.
 2. **Rude** - Pesto has quite the mouth on him and is known for having a lot of bad words in his vocabulary! This password estimator matches your password against a list of "bad" words (bad passwords).
 3. **Protector** - Pesto is always protective of the villagers! This password estimator is used to ensure a high quality password is chosen. It also has flexible parameters to provide different levels of protection!
-4. **Magical** - Pesto is a magical parrot who has will come to you when called. His presence is mutable, as he can never be found until he is called again. This magical password estimator will only store your password in character arrays (mutable) that are zeroed out. It never stores data as a string (immutable). So its existence in memory is "lifeless" when the magic ends.
+4. **Magical** - Pesto is a magical parrot who has will come to you when called. His presence is mutable, as he can never be found until he is called again. This magical password estimator will only store your password in character arrays (mutable) that are zeroed out. It never stores data as a string (immutable).
 5. **Reliable** - Pesto may be a rude parrot, but he knows his stuff and is only one call away! He can rate your password in just a few milliseconds. This password estimator is a simple, reliable tool for all applications that require a simple and secure password strength estimator. 
 ## The Design
 Algorithm created by blending features from Zxcbn and Azure AD Password Protection: 
@@ -67,18 +67,41 @@ using (var pesto = new Pesto())
 
 ### Evaluate
 1. **Normalize Password**: Normalize the password based on Leet values.
-2. **Match Password**: For each character in the normalized password:
-      - Initialize good character count to zero.
-      - Initialize banned word count to zero.
-      - Check if a normalized banned word exists with 1 edit distance (a little fuzz) starting with this character.
-      - If yes:
-           - Increment banned word count for each banned word substring.
-           - Mark any characters not associated with a banned word as a good character, and increment the good character count for each.
-           - Remove the normalized banned word substring from the normalized password.
-           - Remove good characters from the normalized password.  
-           - Start the search over.
-    
-3. **Calculate Match Points**: Convert remaining characters to points. Add these points with the character count and the banned word count. *Match Points = Remaining Characters + Good Character Count + Banned Word Count*
+2. **Match Password**: 
+
+<p align="justify">
+  <img src="https://github.com/aardev14/Pesto/assets/51981572/d839f939-be23-4330-837a-5a2f98bc0eae" alt="Pesto" width="384" align="right">
+
+- Set the password p to all lowercase: This ensures that the password is in lowercase for consistent processing.
+  
+- Make all leet substitutions on p: This step applies leet substitutions, which are character replacements commonly used to represent letters with symbols or numbers. For example, "leet" can be represented as "1337". This step modifies the password string p accordingly.
+  
+- Initialize the banned word count to 0: This variable keeps track of the number of banned words found in the password.
+  
+- Initialize the good character count to 0: This variable counts the number of valid (non-banned) characters in the password.
+  
+- The code then enters a loop that iterates over each character c in the password string p.
+  
+- Inside the outer loop, there is another loop that iterates over each word w in the banned word list b.
+  
+- The code checks if the first character of the banned word b[w] matches the character at position c in the password p. If they match, further checks are performed to determine if the entire banned word is present starting from position c.
+  
+- If the length of the password from position c onwards is greater than or equal to the length of the banned word b[w], the code proceeds to check each character of the banned word against the corresponding characters in the password.
+  
+- A "fuzz" counter is used to keep track of the number of character mismatches between the banned word and the password. If the number of mismatches exceeds 1, the loop is broken, and the code moves on to the next banned word.
+  
+- If the "fuzz" counter is less than or equal to 1, it means that the banned word is a close match to the password. The code increments the banned word count, updates the good character count, and marks the positions in the password that are part of the banned word by adding them to the used index list. This includes the index that was a good character or fuzz.
+  
+- The code then replaces these characters with a designated replacement character.
+  
+- After processing the banned word, the code clears the used index list. Then it creates a new temporary character array temp, and copies the non-replacement characters to it.
+  
+- The code updates the password p to the new character array with the remaining non-replacement characters.
+  
+- Finally, the code clears the temporary array and sets c to -1. Setting c to -1 at the end of the outer loop effectively resets the loop counter c to 0 in the next iteration. This ensures that after making modifications to the password string p, the loop starts from the beginning to re-evaluate each remaining character against the banned words.
+</p>  
+  
+3. **Calculate Match Points**: Convert remaining characters to points. Add these points with the good character count and the banned word count. *Match Points = Remaining Characters + Good Character Count + Banned Word Count*
 4. **Calculate Complexity Points**: Give one point for each complexity parameter: 1 Uppercase, 1 Lowercase, 1 Symbol, 1 Number, [Minimum Length] Length. If parameter requirements are set to false, those complexity points are awarded automatically.
 5. **Calculate Pesto Score** (Uses the same scoring range as Zxcvbn):
       - **4 (Strong)** - Needs [matchPoints] match points and at least 5 complexity points
@@ -90,33 +113,35 @@ using (var pesto = new Pesto())
 ## Recommended Parameters
 Your can customize the parameters of the evaluate function to be as strict as needed for your application. These are just the recommended parameters that I have used in my testing against Zxcvbn.
 
-### Drowsy
+### Drowsy Pesto
 Description: For minimally complex passwords, Pesto feels tired and disinterested. These passwords don't stimulate his intellect or engage his magical abilities, making him appear sleepy and unengaged.
 
 Call `Evaluate(password, 3, 12, true, true, true, true, false)`
 
-### Bored
+### Bored Pesto
 Description: Average settings and "good enough" passwords leave Pesto feeling bored and unimpressed. They fail to challenge his intellect or make full use of his remarkable intelligence.
 
 Call `Evaluate(password, 3, 14, true, true, true, true, false)`
 
-### Curious
+### Curious Pesto
 Description: Moderate settings and somewhat complex passwords make Pesto feel slightly more engaged but not entirely captivated. He begins to pay more attention, but the passwords aren't quite challenging enough to fully interest him.
 
 Call `Evaluate(password, 4, 16, true, true, true, true, false)`
 
-### Alert
+### Alert Pesto
 Description: Very strong settings and robust passwords require Pesto's keen intellect and cause him to feel highly focused and alert. He is completely engaged in the challenge and determined to apply his expertise to uncover any potential weaknesses.
 
 Call `Evaluate(password, 5, 18, true, true, true, true, false)`
 
-### Fascinated
+### Fascinated Pesto
 Description: Extremely strong settings and passwords with maximum complexity captivate Pesto completely. He is enthralled and mesmerized by the challenge, with his energy levels peaking as he devotes all his intellect and expertise to analyzing these formidable passwords.
 
 Call `Evaluate(password, 5, 20, true, true, true, true, false)`
 
 ### Custom Pesto
-Although Zxcvbn is a great estimator, I developed Pesto to better arm developers to defend against dictionary attacks, specifically offline dictionary attacks. The testing shown below is evidence of Pesto's effectiveness compared to Zxcvbn. If you are using weaker parameters, then you should implement things such as rate limiting and 2FA to make it significantly harder for attackers to guess passwords through brute force or dictionary-based methods. 
+Although Zxcvbn is a great estimator, I developed Pesto to better arm developers to defend against dictionary attacks, specifically offline dictionary attacks. The testing shown below is evidence of Pesto's effectiveness compared to Zxcvbn. If you are using weaker parameters, then you should implement things such as rate limiting and 2FA to make it significantly harder for attackers to guess passwords through brute force or dictionary-based methods.
+
+Call `Evaluate(password, x, y, true, true, true, true, false)`
  
 ## Testing
 Testing Pesto against Zxcvbn is important to prove that it is a reliable password strength estimator because it provides a basis for comparison and helps to validate Pesto's effectiveness.
@@ -155,7 +180,7 @@ Follows normalization based on Leet rules found here:
 - https://github.com/trichards57/zxcvbn-cs/blob/master/zxcvbn-core/Matcher/L33tMatcher.cs
 - https://en.wikipedia.org/wiki/Leet
 ### Bad Password List
-The bad password list used here includes all bad passwords used by the Zxcvbn project.
+The bad password list used in Pesto includes all bad passwords used by the Zxcvbn project - plus a few of our own!
 ### Helpful Links
 - https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html
 - https://crackstation.net/hashing-security.htm
