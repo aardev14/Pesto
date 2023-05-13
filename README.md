@@ -15,7 +15,7 @@ With Pesto's help, the villagers found comfort and trust, despite his occasional
 </p>
 
 ## The Password Parrot 
-*"If I 'ad a dollar for every brain cell involved in-a coming up with that password, I'd be-a bankrupt." -Pesto*
+*"If I 'ad a euro for every brain cell involved in-a coming up with that password, I'd be-a bankrupt." -Pesto*
 
 Pesto is a magical talking parrot who can be called upon for his password estimation skills!
 1. **Fuzzy** - Pesto, like all parrots, has fuzzy feathers! This password estimator tracks fuzz (1 edit distance) to find bad passwords.
