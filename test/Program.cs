@@ -11,7 +11,7 @@ Console.WriteLine("Pesto:");
 await Task.Delay(3000);
 Console.WriteLine("\"Ciao, I'm-a Pesto.\"");
 await Task.Delay(2000);
-Console.WriteLine("I'll-a be your password estimator since you-a have a block of parmesan for brains.");
+Console.WriteLine("I'll-a be your password strength estimator since you-a have a block of parmesan for brains.");
 await Task.Delay(2000);
 Console.WriteLine("I know a $h!tty-p@$$w0rd when-a I see one. I know every bad-a word there is!");
 await Task.Delay(2000);
