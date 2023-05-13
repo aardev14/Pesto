@@ -30,16 +30,21 @@ Algorithm created by blending features from Zxcbn and Azure AD Password Protecti
 
 ## Getting Started
 ### Load Into Project
+
+#### Option #1: Add Pesto.dll As A Project Reference
+1. Simply add Pesto.dll found in the [lib](https://github.com/aardev14/Pesto/tree/main/lib) folder as a project reference in your project and you are up and running! You can run the test project called PestoTest found in the [test](https://github.com/aardev14/Pesto/tree/main/test) folder if you want to try it out quickly.
+
+#### Option #2: Add Source Code Directly To Your Project
 1. Locate the [src](https://github.com/aardev14/Pesto/tree/main/src) folder found here and load in the following two files to your project: [Pesto.cs](https://github.com/aardev14/Pesto/blob/main/src/Pesto.cs) and [BadPasswords.csv](https://github.com/aardev14/Pesto/blob/main/src/BannedWords.csv).
 2. Change the properties of the BadPasswords.csv file to **Build Action: Embedded Resource** and **Copy to output directory: Do not copy**.
-3. Copy the Resource ID of BadPasswords.csv under Properties. You will need this for the Pesto.Initalize(*[RESOURCE-ID-GOES-HERE]*) call.
+3. Copy the Resource ID of BadPasswords.csv under Properties. You will need to replace the placeholder text in the Pesto.Initalize() function definition where it says *"[RESOURCE-ID-GOES-HERE]"*.
 
 
 ### Initialize
 Call this function when your application launches. The BadPassword.csv file will be loaded into a list to be used by the evaluate function. Make sure the file is configured properly in your project as explained above. Here is an example:
 
 ``` C#
-Pesto.Init([RESOURCE-ID-GOES-HERE])
+Pesto.Init()
 ```
 
 ### Evaluate
@@ -59,7 +64,7 @@ int pestoScore = 0;
 
 using (var pesto = new Pesto())
 {
-    pestoScore = pesto.Evaluate(passwords[i].ToCharArray(), matchPoints, minChars, true, true, true, true, false);
+    pestoScore = pesto.Evaluate(password, matchPoints, minChars, true, true, true, true, false);
 }
 ```
 
