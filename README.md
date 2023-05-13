@@ -24,7 +24,7 @@ Pesto is a magical talking parrot who can be called upon for his password estima
 4. **Magical** - Pesto is a magical parrot who has will come to you when called. His presence is mutable, as he can never be found until he is called again. This magical password estimator will only store your password in character arrays (mutable) that are zeroed out. It never stores data as a string (immutable).
 5. **Reliable** - Pesto may be a rude parrot, but he knows his stuff and is only one call away! He can rate your password in just a few milliseconds. This password estimator is a simple, reliable tool for all applications that require a simple and secure password strength estimator. 
 ## The Design
-Algorithm created by blending features from Zxcbn and Azure AD Password Protection: 
+I created the algorithm by blending features from Zxcbn and Azure AD Password Protection: 
 - https://learn.microsoft.com/en-us/azure/active-directory/authentication/concept-password-ban-bad
 - https://github.com/dropbox/zxcvbn
 
