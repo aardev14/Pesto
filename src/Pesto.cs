@@ -41,7 +41,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PestoEstimator
+namespace PestoNet
 {
 
     public class Pesto : IDisposable
