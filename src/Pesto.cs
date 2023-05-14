@@ -297,7 +297,6 @@ namespace PestoNet
             //Calculate match points.
             int value = bannedWordCount + goodChars + password.Length;
             Array.Clear(password, 0, password.Length);
-            if (value > 5) value = 5;
 
             //Calculate complexity points.
             int rule = 0;
