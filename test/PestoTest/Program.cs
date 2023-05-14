@@ -1,4 +1,28 @@
-﻿using System.Diagnostics;
+﻿/*
+MIT License
+
+Copyright (c) 2023 Freddie Ranieri
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+using System.Diagnostics;
 using PestoNet;
 using PestoTests;
 
@@ -23,8 +47,8 @@ await Task.Delay(2000);
 while (true)
 {
     //Pesto will ask the user what test they want to run.
-    Console.WriteLine("\nChoose a test to run:\n[1] Pesto Latency Test\n[2] Zxcvbn vs Drowsy Pesto Scoring Test\n[3] Zxcvbn vs Bored Pesto Scoring Test\n[4] Zxcvbn vs Curious Pesto Scoring Test\n[5] Zxcvbn vs Alert Pesto Scoring Test\n[6] Zxcvbn vs Fascinated Pesto Scoring Test\n[7] Zxcvbn vs Custom Pesto Scoring Test\n[8] Say Goodbye");
-    Console.WriteLine("Enter a value from 1-8:");
+    Console.WriteLine("\nChoose a test to run:\n[1] Pesto Latency Test\n[2] Zxcvbn vs Drowsy Pesto Scoring Test\n[3] Zxcvbn vs Bored Pesto Scoring Test\n[4] Zxcvbn vs Curious Pesto Scoring Test\n[5] Zxcvbn vs Alert Pesto Scoring Test\n[6] Zxcvbn vs Fascinated Pesto Scoring Test\n[7] Zxcvbn vs Custom Pesto Scoring Test\n[8] Run Pesto\n[9] Say Goodbye");
+    Console.WriteLine("Enter a value from 1-9:");
     String testNumber = Console.ReadLine();
 
     if (testNumber == "1")
@@ -120,6 +144,12 @@ while (true)
         Console.WriteLine("Done!");
     }
     else if (testNumber == "8")
+    {
+        await Task.Delay(500);
+        Tests.RunPesto();
+        await Task.Delay(3000);
+    }
+    else if (testNumber == "9")
     {
         await Task.Delay(500);
         Console.WriteLine("Arrivederci! Just say 'Presto Pesto!' if you-a need anything else!");

@@ -18,7 +18,6 @@ namespace PestoTests
         /// <param name="minChars">The minimum characters parameter passed to the Evaluate() function</param>
         public static void CompareZxcvbnScoring(int matchPoints, int minChars)
         {
-           
             //Load all the passwords into the password list.
             List<string> passwords = new List<string>();
             var assembly = IntrospectionExtensions.GetTypeInfo(typeof(Tests)).Assembly;
@@ -132,7 +131,28 @@ namespace PestoTests
             Console.WriteLine("\n=======================================");
         }
 
+        /// <summary>
+        /// Run Pesto with Drowsy settings - 3 match points and 12 minimum characters. They can be changed in code if needed.
+        /// </summary>
+        public static void RunPesto()
+        {
+            Console.WriteLine("This test will run Drowsy Pesto (3 match points and 12 minimum characters) by default.");
+            Console.WriteLine("Change the parameters in code if needed.");
+            Console.WriteLine("Enter a password: ");
+            String password = Console.ReadLine(); //In production - use a keyboard UI that stores the password in a char array
 
+            int matchPoints = 3;
+            int minChars = 12;
+
+            int pestoScore = 0;
+            using (var pesto = new Pesto())
+            {
+                pestoScore = pesto.Evaluate(password.ToCharArray(), matchPoints, minChars, true, true, true, true, false);
+            }
+
+            //Evaluate the password with Drowsy Pesto. You can adjust the match points and minimum characters as needed. Refer to the Github for more info.
+            Console.WriteLine("Pesto Score: " + pestoScore);
+        }
     }
 }
 
