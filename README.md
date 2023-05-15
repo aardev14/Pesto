@@ -119,7 +119,7 @@ using (var pesto = new Pesto())
 3. **Calculate Match Points**: Convert remaining characters to points. Add these points with the good character count and the banned word count. *Match Points = Remaining Characters + Good Character Count + Banned Word Count*
 4. **Calculate Complexity Points**: Give one point for each complexity parameter: 1 Uppercase, 1 Lowercase, 1 Symbol, 1 Number, [Minimum Length] Length. If parameter requirements are set to false, those complexity points are awarded automatically.
 5. **Calculate Pesto Score** (Uses the same scoring range as Zxcvbn):
-      - **4 (Strong)** - Needs [matchPoints] match points and at least 5 complexity points
+      - **4 (Strong)** - Needs [matchPoints] match points and all 5 complexity points
       - **3 (Good)** - Needs [matchPoints - 1] match points and at least 4 complexity points
       - **2 (Average)** - Needs [matchPoints - 2] match points and at least 3 complexity points
       - **1 (Weak)** - Needs [matchPoints - 3] match points and at least 2 complexity points
