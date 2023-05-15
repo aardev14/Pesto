@@ -154,7 +154,7 @@ Description: Extremely strong settings and passwords with maximum complexity cap
 Call `Evaluate(password, 5, 20, true, true, true, true, false)`
 
 ### Custom Pesto
-Although Zxcvbn is a great estimator, I developed Pesto to better arm developers to defend against dictionary attacks, specifically offline dictionary attacks. The testing shown below is evidence of Pesto's effectiveness compared to Zxcvbn. If you are using weaker parameters, then you should implement things such as rate limiting and 2FA to make it significantly harder for attackers to guess passwords through brute force or dictionary-based methods.
+Although Zxcvbn is a great estimator, I developed Pesto to better arm developers to defend against dictionary attacks, specifically offline dictionary attacks. The testing shown below is evidence of Pesto's effectiveness compared to Zxcvbn. It is much stricter! If you are using weaker parameters, then you should implement things such as rate limiting and 2FA to make it significantly harder for attackers to guess passwords through brute force or dictionary-based methods.
 
 Call `Evaluate(password, x, y, true, true, true, true, false)`
  
@@ -184,9 +184,9 @@ Testing Pesto against a large dataset of passwords, such as the 720,000 password
 ### Test Results
 Below is a chart and the associated table showing the results of testing Zxcvbn vs. Pesto (when he is Bored, Curious, and Alert) against the 000webhost.txt dataset of passwords from SecList.
 
-![PestoChart01](https://github.com/aardev14/Pesto/assets/51981572/08b710b9-eefb-441b-98bb-e6fe72e17fbe)
+![Pesto001Chart](https://github.com/aardev14/Pesto/assets/51981572/30c994b0-2c80-45df-96f0-f2ae8236c068)
 
-<img width="1229" alt="pestotable01" src="https://github.com/aardev14/Pesto/assets/51981572/10c7ac4f-92b1-40ff-b4c2-f3f0aba64c96">
+![Pesto001Table](https://github.com/aardev14/Pesto/assets/51981572/f0fe2d31-f263-4c93-a9c7-5c53d3c24519)
 
 [Tests](https://github.com/aardev14/Pesto/tree/main/test) can be found in this repository, so you can run them yourself if you would like to confirm the data shown on the chart. In summary, comparing Pesto to Zxcvbn is essential for establishing Pesto's credibility as a password strength estimator, understanding its strengths and weaknesses, and guiding its development and improvement. If you would like to test Pesto with the 720,000 passwords from the SecLists repository, download the dataset, then process and evaluate each password using both Pesto and Zxcvbn. Record the scores and compare their performance.
 
