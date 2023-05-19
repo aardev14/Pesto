@@ -147,7 +147,7 @@ namespace PestoTests
             int pestoScore = 0;
             using (var pesto = new Pesto())
             {
-                pestoScore = pesto.Evaluate(password.ToCharArray(), matchPoints, minChars, true, true, true, true, false);
+                pestoScore = pesto.Evaluate(password.ToCharArray(), matchPoints, minChars, true, true, true, true, true);
             }
 
             //Evaluate the password with Drowsy Pesto. You can adjust the match points and minimum characters as needed. Refer to the Github for more info.
