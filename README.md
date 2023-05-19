@@ -125,27 +125,27 @@ using (var pesto = new Pesto())
 Your can customize the parameters of the evaluate function to be as strict as needed for your application. These are just the recommended parameters that I have used in my testing against Zxcvbn. Requirements vary based on how the password is hashed, the key derivation function used, the likelihood of offline attacks, etc. Additionally there are differing views when it comes to complexity requirements. Read [NIST Special Publication 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) for more information.
 
 ### Drowsy Pesto
-Description: For minimally complex passwords, Pesto feels tired and disinterested. These passwords don't stimulate his intellect or engage his magical abilities, making him appear sleepy and unengaged.
+*Description: For minimally complex passwords, Pesto feels tired and disinterested. These passwords don't stimulate his intellect or engage his magical abilities, making him appear sleepy and unengaged.*
 
 Call `Evaluate(password, 3, 12, true, true, true, true, false)`
 
 ### Bored Pesto
-Description: Average settings and "good enough" passwords leave Pesto feeling bored and unimpressed. They fail to challenge his intellect or make full use of his remarkable intelligence.
+*Description: Average settings and "good enough" passwords leave Pesto feeling bored and unimpressed. They fail to challenge his intellect or make full use of his remarkable intelligence.*
 
 Call `Evaluate(password, 3, 14, true, true, true, true, false)`
 
 ### Curious Pesto
-Description: Moderate settings and somewhat complex passwords make Pesto feel slightly more engaged but not entirely captivated. He begins to pay more attention, but the passwords aren't quite challenging enough to fully interest him.
+*Description: Moderate settings and somewhat complex passwords make Pesto feel slightly more engaged but not entirely captivated. He begins to pay more attention, but the passwords aren't quite challenging enough to fully interest him.*
 
 Call `Evaluate(password, 4, 16, true, true, true, true, false)`
 
 ### Alert Pesto
-Description: Very strong settings and robust passwords require Pesto's keen intellect and cause him to feel highly focused and alert. He is completely engaged in the challenge and determined to apply his expertise to uncover any potential weaknesses.
+*Description: Very strong settings and robust passwords require Pesto's keen intellect and cause him to feel highly focused and alert. He is completely engaged in the challenge and determined to apply his expertise to uncover any potential weaknesses.*
 
 Call `Evaluate(password, 5, 18, true, true, true, true, false)`
 
 ### Fascinated Pesto
-Description: Extremely strong settings and passwords with maximum complexity captivate Pesto completely. He is enthralled and mesmerized by the challenge, with his energy levels peaking as he devotes all his intellect and expertise to analyzing these formidable passwords.
+*Description: Extremely strong settings and passwords with maximum complexity captivate Pesto completely. He is enthralled and mesmerized by the challenge, with his energy levels peaking as he devotes all his intellect and expertise to analyzing these formidable passwords.*
 
 Call `Evaluate(password, 5, 20, true, true, true, true, false)`
 
