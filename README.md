@@ -81,16 +81,12 @@ using (var pesto = new Pesto())
 2. **Order List**: Order the list in descending order by word length. This is important for how the algorithm checks for bad passwords. 
 
 ### Evaluate
-1. **Normalize Password**: Normalize the password based on Leet values.
+1. **Normalize Password**: Set the password p to all lowercase. This ensures that the password is in lowercase for consistent processing. Normalize the password based on Leet values. Leet substitutions are character replacements commonly used to represent letters with symbols or numbers. For example, "leet" can be represented as "1337". This step modifies the password string p accordingly.
 2. **Match Password**: 
 
 <p align="justify">
   <img src="https://github.com/aardev14/Pesto/assets/51981572/d839f939-be23-4330-837a-5a2f98bc0eae" alt="Pesto" width="384" align="right">
 
-- Set the password p to all lowercase: This ensures that the password is in lowercase for consistent processing.
-  
-- Make all leet substitutions on p: This step applies leet substitutions, which are character replacements commonly used to represent letters with symbols or numbers. For example, "leet" can be represented as "1337". This step modifies the password string p accordingly.
-  
 - Initialize the banned word count to 0: This variable keeps track of the number of banned words found in the password.
   
 - Initialize the good character count to 0: This variable counts the number of valid (non-banned) characters in the password.
@@ -199,7 +195,7 @@ Follows normalization based on Leet rules found here:
 
 ### Bad Password List
 
-The bad password list used in Pesto includes all [data](https://github.com/dropbox/zxcvbn/tree/master/data) used by the Zxcvbn project - plus a few of our own! I have added 10,000+ common passwords, the BIP39 word list, popular cryptocurrency terms, keyboard combinations, years, months, days, and more. There are over 100,000 entries in this list. 
+The bad password list used in Pesto includes all [data](https://github.com/dropbox/zxcvbn/tree/master/data) used by the Zxcvbn project - in addition to even more data! I have added the [Top 100,000 common passwords from SecList](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10-million-password-list-top-100000.txt), the [BIP39 word list](https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt), popular cryptocurrency terms, years, months, and days. It also contains strings that get detected by the algorithm to check for keyboard patterns, character repetition, letter sequencing, and number sequencing. There are over 175,000 entries in this list. 
 
 ### Helpful Links
 - https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html
