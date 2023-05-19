@@ -178,7 +178,7 @@ Comparing Pesto to a well-known and trusted password strength estimator like Zxc
 Testing Pesto against a large dataset of passwords, such as the 720,000 passwords from the [SecLists repository](https://github.com/danielmiessler/SecLists) (https://github.com/danielmiessler/SecLists/blob/master/Passwords/Leaked-Databases/000webhost.txt), helps to understand how Pesto performs in real-world scenarios. This can reveal any potential biases or shortcomings in Pesto's approach to password strength estimation and inform potential improvements.
 
 ### Test Results
-Below is a chart and the associated table showing the results of testing Zxcvbn vs. Pesto (when he is Bored, Curious, and Alert) against the 000webhost.txt dataset of passwords from SecList.
+Below is a chart and the associated table showing the results of testing Zxcvbn vs. Pesto (when he is Drowsy, Bored, Curious, Alert, and Fascinated) against the 000webhost.txt dataset of passwords from SecList.
 
 ![Pestochart](https://github.com/aardev14/Pesto/assets/51981572/062388b8-bd7d-472b-9cbb-b44c1b5d2caa)
 
