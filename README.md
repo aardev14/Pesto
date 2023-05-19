@@ -122,7 +122,7 @@ using (var pesto = new Pesto())
       - **0 (Very Weak)** - Needs at least 0 match points and at least 0 complexity points
 
 ## Recommended Parameters
-Your can customize the parameters of the evaluate function to be as strict as needed for your application. These are just the recommended parameters that I have used in my testing against Zxcvbn.
+Your can customize the parameters of the evaluate function to be as strict as needed for your application. These are just the recommended parameters that I have used in my testing against Zxcvbn. Requirements vary based on how the password is hashed, the key derivation function used, the likelihood of offline attacks, etc. Additionally there are differing views when it comes to complexity requirements. Read [NIST Special Publication 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) for more information.
 
 ### Drowsy Pesto
 Description: For minimally complex passwords, Pesto feels tired and disinterested. These passwords don't stimulate his intellect or engage his magical abilities, making him appear sleepy and unengaged.
@@ -180,9 +180,9 @@ Testing Pesto against a large dataset of passwords, such as the 720,000 password
 ### Test Results
 Below is a chart and the associated table showing the results of testing Zxcvbn vs. Pesto (when he is Bored, Curious, and Alert) against the 000webhost.txt dataset of passwords from SecList.
 
-![Pesto001Chart](https://github.com/aardev14/Pesto/assets/51981572/30c994b0-2c80-45df-96f0-f2ae8236c068)
+![Pestochart](https://github.com/aardev14/Pesto/assets/51981572/062388b8-bd7d-472b-9cbb-b44c1b5d2caa)
 
-![Pesto001Table](https://github.com/aardev14/Pesto/assets/51981572/f0fe2d31-f263-4c93-a9c7-5c53d3c24519)
+![pestotable](https://github.com/aardev14/Pesto/assets/51981572/99318ccf-c2ff-4def-bb62-493de6af8896)
 
 [Tests](https://github.com/aardev14/Pesto/tree/main/test) can be found in this repository, so you can run them yourself if you would like to confirm the data shown on the chart. In summary, comparing Pesto to Zxcvbn is essential for establishing Pesto's credibility as a password strength estimator, understanding its strengths and weaknesses, and guiding its development and improvement. If you would like to test Pesto with the 720,000 passwords from the SecLists repository, download the dataset, then process and evaluate each password using both Pesto and Zxcvbn. Record the scores and compare their performance.
 
@@ -195,7 +195,7 @@ Follows normalization based on Leet rules found here:
 
 ### Bad Password List
 
-The bad password list used in Pesto includes all [data](https://github.com/dropbox/zxcvbn/tree/master/data) used by the Zxcvbn project - in addition to even more data! I have added the [Top 100,000 common passwords from SecList](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10-million-password-list-top-100000.txt), the [BIP39 word list](https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt), popular cryptocurrency terms, years, months, and days. It also contains strings that get detected by the algorithm to check for keyboard patterns, character repetition, letter sequencing, and number sequencing. There are over 175,000 entries in this list. 
+The bad password list used in Pesto includes [data](https://github.com/dropbox/zxcvbn/tree/master/data) used by the Zxcvbn project - in addition to even more data! I have added the [Top 100,000 common passwords from SecList](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10-million-password-list-top-100000.txt), the [BIP39 word list](https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt), popular cryptocurrency terms, years, months, and days. It also contains strings that get detected by the algorithm to check for keyboard patterns, character repetition, letter sequencing, and number sequencing. There are over 175,000 entries in this list. 
 
 ### Helpful Links
 - https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html
