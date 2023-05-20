@@ -47,8 +47,8 @@ await Task.Delay(2000);
 while (true)
 {
     //Pesto will ask the user what test they want to run.
-    Console.WriteLine("\nChoose a test to run:\n[1] Pesto Latency Test\n[2] Zxcvbn vs Drowsy Pesto Scoring Test\n[3] Zxcvbn vs Bored Pesto Scoring Test\n[4] Zxcvbn vs Curious Pesto Scoring Test\n[5] Zxcvbn vs Alert Pesto Scoring Test\n[6] Zxcvbn vs Fascinated Pesto Scoring Test\n[7] Zxcvbn vs Custom Pesto Scoring Test\n[8] Run Pesto\n[9] Run All Pesto Scoring Tests\n[10] Say Goodbye");
-    Console.WriteLine("Enter a value from 1-10:");
+    Console.WriteLine("\nChoose a test to run:\n[1] Pesto Latency Test\n[2] Zxcvbn vs Bored Pesto Scoring Test\n[3] Zxcvbn vs Curious Pesto Scoring Test\n[4] Zxcvbn vs Alert Pesto Scoring Test\n[5] Zxcvbn vs Fascinated Pesto Scoring Test\n[6] Zxcvbn vs Custom Pesto Scoring Test\n[7] Run Pesto\n[8] Run All Pesto Scoring Tests\n[9] Say Goodbye");
+    Console.WriteLine("Enter a value from 1-9:");
     String testNumber = Console.ReadLine();
 
     if (testNumber == "1")
@@ -66,26 +66,26 @@ while (true)
     }
     else if (testNumber == "2")
     {
-        Console.WriteLine("Running Zxcvbn vs Drowsy Pesto Scoring Test...");
+        Console.WriteLine("Running Zxcvbn vs Bored Pesto Scoring Test...");
+        await Task.Delay(250);
+        Console.WriteLine("This may take a while...");
+        await Task.Delay(250);
+        Tests.CompareZxcvbnScoring(2, 8);
+        Console.WriteLine("Done!");
+    }
+    else if (testNumber == "3")
+    {
+
+        Console.WriteLine("Running Zxcvbn vs Curious Pesto Scoring Test...");
         await Task.Delay(250);
         Console.WriteLine("This may take a while...");
         await Task.Delay(250);
         Tests.CompareZxcvbnScoring(3, 12);
         Console.WriteLine("Done!");
     }
-    else if (testNumber == "3")
-    {
-        Console.WriteLine("Running Zxcvbn vs Bored Pesto Scoring Test...");
-        await Task.Delay(250);
-        Console.WriteLine("This may take a while...");
-        await Task.Delay(250);
-        Tests.CompareZxcvbnScoring(3, 14);
-        Console.WriteLine("Done!");
-    }
     else if (testNumber == "4")
     {
-
-        Console.WriteLine("Running Zxcvbn vs Curious Pesto Scoring Test...");
+        Console.WriteLine("Running Zxcvbn vs Alert Pesto Scoring Test...");
         await Task.Delay(250);
         Console.WriteLine("This may take a while...");
         await Task.Delay(250);
@@ -94,15 +94,6 @@ while (true)
     }
     else if (testNumber == "5")
     {
-        Console.WriteLine("Running Zxcvbn vs Alert Pesto Scoring Test...");
-        await Task.Delay(250);
-        Console.WriteLine("This may take a while...");
-        await Task.Delay(250);
-        Tests.CompareZxcvbnScoring(5, 18);
-        Console.WriteLine("Done!");
-    }
-    else if (testNumber == "6")
-    {
         Console.WriteLine("Running Zxcvbn vs Fascinated Pesto Scoring Test...");
         await Task.Delay(250);
         Console.WriteLine("This may take a while...");
@@ -110,7 +101,7 @@ while (true)
         Tests.CompareZxcvbnScoring(5, 20);
         Console.WriteLine("Done!");
     }
-    else if (testNumber == "7")
+    else if (testNumber == "6")
     {
         int matchPoints = 0;
         while (matchPoints == 0)
@@ -127,11 +118,11 @@ while (true)
         int minChars = 0;
         while (minChars == 0)
         {
-            Console.WriteLine("Enter a value for minimum characters (8-32):");
+            Console.WriteLine("Enter a value for minimum characters (8-64):");
             String minCharsNumber = Console.ReadLine();
             try
             {
-                if (Convert.ToInt32(minCharsNumber) >= 8 && Convert.ToInt32(minCharsNumber) <= 32) minChars = Convert.ToInt32(minCharsNumber);
+                if (Convert.ToInt32(minCharsNumber) >= 8 && Convert.ToInt32(minCharsNumber) <= 64) minChars = Convert.ToInt32(minCharsNumber);
             }
             catch (Exception ex) { }
         }
@@ -143,40 +134,33 @@ while (true)
         Tests.CompareZxcvbnScoring(matchPoints, minChars);
         Console.WriteLine("Done!");
     }
-    else if (testNumber == "8")
+    else if (testNumber == "7")
     {
         await Task.Delay(500);
         Tests.RunPesto();
         await Task.Delay(3000);
     }
-    else if (testNumber == "9") { 
+    else if (testNumber == "8") { 
           
-        Console.WriteLine("Running Zxcvbn vs Drowsy Pesto Scoring Test...");
-        await Task.Delay(250);
-        Console.WriteLine("This may take a while...");
-        await Task.Delay(250);
-        Tests.CompareZxcvbnScoring(3, 12);
-        Console.WriteLine("Done!");
-         
         Console.WriteLine("Running Zxcvbn vs Bored Pesto Scoring Test...");
         await Task.Delay(250);
         Console.WriteLine("This may take a while...");
         await Task.Delay(250);
-        Tests.CompareZxcvbnScoring(3, 14);
+        Tests.CompareZxcvbnScoring(2, 8);
         Console.WriteLine("Done!");
 
         Console.WriteLine("Running Zxcvbn vs Curious Pesto Scoring Test...");
         await Task.Delay(250);
         Console.WriteLine("This may take a while...");
         await Task.Delay(250);
-        Tests.CompareZxcvbnScoring(4, 16);
+        Tests.CompareZxcvbnScoring(3, 12);
         Console.WriteLine("Done!");
           
         Console.WriteLine("Running Zxcvbn vs Alert Pesto Scoring Test...");
         await Task.Delay(250);
         Console.WriteLine("This may take a while...");
         await Task.Delay(250);
-        Tests.CompareZxcvbnScoring(5, 18);
+        Tests.CompareZxcvbnScoring(4, 16);
         Console.WriteLine("Done!");
           
         Console.WriteLine("Running Zxcvbn vs Fascinated Pesto Scoring Test...");
@@ -186,7 +170,7 @@ while (true)
         Tests.CompareZxcvbnScoring(5, 20);
         Console.WriteLine("Done!");
     }
-    else if (testNumber == "10")
+    else if (testNumber == "9")
     {
         await Task.Delay(500);
         Console.WriteLine("Arrivederci! Just say 'Presto Pesto!' if you-a need anything else!");

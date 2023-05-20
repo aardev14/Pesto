@@ -136,7 +136,7 @@ namespace PestoTests
         /// </summary>
         public static void RunPesto()
         {
-            Console.WriteLine("This test will run Drowsy Pesto (3 match points and 12 minimum characters) by default.");
+            Console.WriteLine("This test will run Curious Pesto (3 match points and 12 minimum characters) by default.");
             Console.WriteLine("Change the parameters in code if needed.");
             Console.WriteLine("Enter a password: ");
             String password = Console.ReadLine(); //In production - use a keyboard UI that stores the password in a char array
