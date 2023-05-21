@@ -168,7 +168,7 @@ Extremely strong settings and passwords with maximum complexity captivate Pesto 
 #### Example
 *High Sensitivity Web or Offline Service (Minimum 20 Characters)*
 
-A cryptocurrency wallet like Ledger and Trezor - or a seed phrase storage solution like [Splitcoin](www.splitcoin.com). I am the inventor and lead engineer for Splitcoin. These applications store the private keys or encryption keys needed to access and manage digital currencies like Bitcoin or Ethereum. If an attacker gains access to these keys, the financial loss could be significant - potentially the total value of the cryptocurrency stored in the wallet. This makes the wallet a high-value target, and a long, complex password is essential. With a 20-character minimum, the password forms a strong line of defense against both online and offline attacks.
+A cryptocurrency wallet like Ledger and Trezor - or a seed phrase storage solution like [Splitcoin](https://www.splitcoin.com). I am the founder and lead engineer for Splitcoin. These applications store the private keys or encryption keys needed to access and manage digital currencies like Bitcoin or Ethereum. If an attacker gains access to these keys, the financial loss could be significant - potentially the total value of the cryptocurrency stored in the wallet. This makes the wallet a high-value target, and a long, complex password is essential. With a 20-character minimum, the password forms a strong line of defense against both online and offline attacks.
 
 ### Custom Pesto
 Call `Evaluate(password, requiredMatchPoints, requiredNumberOfCharacters, true, true, true, true, false)`
@@ -196,7 +196,7 @@ Comparing Pesto to a well-known and trusted password strength estimator like Zxc
 
 #### Understanding Real-World Performance 
 
-Testing Pesto against a large dataset of passwords, such as the 720,000 passwords from the [SecLists repository](https://github.com/danielmiessler/SecLists) (https://github.com/danielmiessler/SecLists/blob/master/Passwords/Leaked-Databases/000webhost.txt), helps to understand how Pesto performs in real-world scenarios. This can reveal any potential biases or shortcomings in Pesto's approach to password strength estimation and inform potential improvements.
+Testing Pesto against a large dataset of passwords, such as the 720,000 passwords in [000webhost.txt](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Leaked-Databases/000webhost.txt) from the [SecLists repository](https://github.com/danielmiessler/SecLists), helps to understand how Pesto performs in real-world scenarios. This can reveal any potential biases or shortcomings in Pesto's approach to password strength estimation and inform potential improvements.
 
 ### Test Results
 Below is a chart and the associated table showing the results of testing Zxcvbn vs. Pesto (when he is Bored, Curious, Alert, and Fascinated) against the 000webhost.txt dataset of passwords from SecList.
