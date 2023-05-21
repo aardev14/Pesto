@@ -78,7 +78,7 @@ using (var pesto = new Pesto())
 
 ### Initialize
 1. **Normalize List**: When the application starts load all words from the banned word list with 3 or more characters. Create the new list (no duplicates) by using all normalization words for each word. This means removing all Leetspeak and making every word lowercase. This list will be static and can be called by Pesto class directly so that all future instances of Pesto can use the normalized list.
-2. **Order List**: Order the list in descending order by word length. This is important for how the algorithm checks for bad passwords. 
+2. **Order List**: Order the list in descending order by word length. This is important for how the algorithm checks for bad passwords. It prioritizes finding the longer words that exist in the password.
 
 ### Evaluate
 1. **Normalize Password**: Set the password p to all lowercase. This ensures that the password is in lowercase for consistent processing. Normalize the password based on Leet values. Leet substitutions are character replacements commonly used to represent letters with symbols or numbers. For example, "leet" can be represented as "1337". This step modifies the password string p accordingly.
