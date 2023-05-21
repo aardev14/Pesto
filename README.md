@@ -1,12 +1,12 @@
 # Pesto 1.0.0
 ## What Is Pesto?
-Pesto is a secure password strength estimator blending features from [Zxcvbn](https://dropbox.tech/security/zxcvbn-realistic-password-strength-estimation) and [Azure AD Password Protection](https://learn.microsoft.com/en-us/azure/active-directory/authentication/concept-password-ban-bad) used for sensitive applications that require mutable data structures. Pesto was developed in C# for .NET applications, but can easily be coded in other programming languages. Pesto is just a password strength estimator (for now), so you will need to implement your own virtual keyboard and call the evaluate function on key press events.
+Pesto is a secure password strength estimator blending features from [zxcvbn](https://dropbox.tech/security/zxcvbn-realistic-password-strength-estimation) and [Azure AD Password Protection](https://learn.microsoft.com/en-us/azure/active-directory/authentication/concept-password-ban-bad) used for sensitive applications that require mutable data structures. Pesto was developed in C# for .NET applications, but can easily be coded in other programming languages. Pesto is just a password strength estimator (for now), so you will need to implement your own virtual keyboard and call the evaluate function on key press events.
 
 ## The Legend of Pesto
 <p align="justify">
   <img src="https://github.com/aardev14/Pesto/assets/51981572/8b4561bf-42e4-466e-9939-42a79fc7a3ab" alt="Pesto" width="384" align="right">
   
-In a charming Italian hamlet, there lived a magical parrot named Pesto, who was known to be rude at times. Pesto was far from an ordinary bird; he was a vibrant Italian parrot with feathers as green as the undulating hills of Tuscany. Whispers of an ancient woodland spoke of the origin of Pesto's kind, the "Il Parrocchetto Incantato," where they gained their mystical abilities. Pesto, in particular, had an extraordinary memory, capable of recalling every word he ever heard.
+In a charming Italian hamlet, there lived a magical parrot named Pesto, who was known to be rude at times. Pesto was far from an ordinary bird; he was a vibrant Italian parrot with feathers as green as the hills of Tuscany. Whispers of an ancient woodland spoke of the origin of Pesto's kind, the "Il Parrocchetto Incantato," where they gained their mystical abilities. Pesto, in particular, had an extraordinary memory, capable of recalling every word he ever heard.
 
 As the village transitioned into the digital age, Pesto's exceptional talents became incredibly valuable. With a strong connection to his Italian roots, Pesto's expertise in password security was highly coveted. Villagers would call upon him by yelling "Presto, Pesto!", and Pesto, sometimes grumpily, would arrive with a flap of his majestic wings. He would scrutinize passwords with his sharp intellect and enchanting Italian accent, earning the nickname "Pesto il Pappagallo delle Password" or the protector of their digital secrets, assisting the villagers in securing their data.
 
@@ -24,7 +24,7 @@ Pesto is a magical talking parrot who can be called upon for his password estima
 4. **Magical** - Pesto is a magical parrot who has will come to you when called. His presence is mutable, as he can never be found until he is called again. This magical password estimator will only store your password in character arrays (mutable) that are zeroed out. It never stores data as a string (immutable).
 5. **Reliable** - Pesto may be a rude parrot, but he knows his stuff and is only one call away! He can rate your password in just a few milliseconds. This password estimator is a simple, reliable tool for all applications that require a simple and secure password strength estimator. 
 ## The Design
-I created the algorithm by blending features from Zxcbn and Azure AD Password Protection: 
+I created the algorithm by blending features from zxcbn and Azure AD Password Protection: 
 - https://learn.microsoft.com/en-us/azure/active-directory/authentication/concept-password-ban-bad
 - https://github.com/dropbox/zxcvbn
 
@@ -122,7 +122,7 @@ using (var pesto = new Pesto())
       - **0 (Very Weak)** - Needs at least 0 match points and at least 0 complexity points
 
 ## Recommended Parameters
-Your can customize the parameters of the evaluate function to be as strict as needed for your application. These are the recommended parameters that I have used in my testing against Zxcvbn. Requirements vary based on how the password is hashed, the key derivation function used, the likelihood of offline attacks, etc. Additionally, there are differing views when it comes to complexity requirements. Read [NIST Special Publication 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) for more information. It is important to note that password length is valued over password complextiy.
+Your can customize the parameters of the evaluate function to be as strict as needed for your application. These are the recommended parameters that I have used in my testing against zxcvbn. Requirements vary based on how the password is hashed, the key derivation function used, the likelihood of offline attacks, etc. Additionally, there are differing views when it comes to complexity requirements. Read [NIST Special Publication 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) for more information. It is important to note that password length is valued over password complextiy.
 
 **You should always accept a Pesto score of 4. You can accept a Pesto score of 3, but it is not recommended. Instead of accepting a Pesto score of 3, you should just lower your parameter values.**
 
@@ -173,39 +173,39 @@ A cryptocurrency wallet like Ledger and Trezor - or a seed phrase storage soluti
 ### Custom Pesto
 Call `Evaluate(password, requiredMatchPoints, requiredNumberOfCharacters, true, true, true, true, false)`
 
-Although Zxcvbn is a great estimator, I developed Pesto to better arm developers to defend against dictionary attacks, specifically offline dictionary attacks. The testing shown below is evidence of Pesto's effectiveness compared to Zxcvbn. It is much stricter! If you are using weaker parameters, then you should implement things such as rate limiting and 2FA to make it significantly harder for attackers to guess passwords through brute force or dictionary-based methods. Regardless of the nature of your application or the parameters used, a memory-hard password hashing function such as Argon2id or Scrypt should be used.
+Although zxcvbn is a great estimator, I developed Pesto to better arm developers to defend against dictionary attacks, specifically offline dictionary attacks. The testing shown below is evidence of Pesto's effectiveness compared to zxcvbn. It is much stricter! If you are using weaker parameters, then you should implement things such as rate limiting and 2FA to make it significantly harder for attackers to guess passwords through brute force or dictionary-based methods. Regardless of the nature of your application or the parameters used, a memory-hard password hashing function such as Argon2id or Scrypt should be used.
  
 ## Testing
-Testing Pesto against Zxcvbn is important to prove that it is a reliable password strength estimator because it provides a basis for comparison and helps to validate Pesto's effectiveness.
+Testing Pesto against zxcvbn is important to prove that it is a reliable password strength estimator because it provides a basis for comparison and helps to validate Pesto's effectiveness.
 ### Why Testing Is Important
 #### Benchmarking 
 
-Zxcvbn is a widely used and respected password strength estimator developed by Dropbox. By comparing Pesto's performance against zxcvbn, we can establish a benchmark for evaluating Pesto's effectiveness and reliability. This can help you understand whether Pesto is on par with or surpasses the established estimator in accurately assessing password strength.
+As a password strength estimator, zxcvbn is a widely used and respected. It is developed by Dropbox. By comparing Pesto's performance against zxcvbn, we can establish a benchmark for evaluating Pesto's effectiveness and reliability. This can help you understand whether Pesto is on par with or surpasses the established estimator in accurately assessing password strength.
 
 #### Identifying Strengths And Weaknesses 
 
-Comparing Pesto to Zxcvbn allows us to identify the strengths and weaknesses of each estimator. By analyzing the differences in their evaluations, we can determine which aspects of password strength Pesto handles better or worse than Zxcvbn. This information can guide further improvements and refinements to Pesto's algorithm.
+Comparing Pesto to zxcvbn allows us to identify the strengths and weaknesses of each estimator. By analyzing the differences in their evaluations, we can determine which aspects of password strength Pesto handles better or worse than zxcvbn. This information can guide further improvements and refinements to Pesto's algorithm.
 
 #### Validating Methodology 
 
-Testing Pesto against Zxcvbn helps to validate Pesto's methodology and approach to password strength estimation. If Pesto consistently produces similar or better results compared to Zxcvbn, it suggests that Pesto's algorithm is sound and effective. Conversely, if Pesto's results are consistently worse, it may indicate that its algorithm needs improvement or revision.
+Testing Pesto against zxcvbn helps to validate Pesto's methodology and approach to password strength estimation. If Pesto consistently produces similar or better results compared to zxcvbn, it suggests that Pesto's algorithm is sound and effective. Conversely, if Pesto's results are consistently worse, it may indicate that its algorithm needs improvement or revision.
 
 #### Building Trust 
 
-Comparing Pesto to a well-known and trusted password strength estimator like Zxcvbn can help build trust in Pesto's capabilities. If Pesto performs well against Zxcvbn, users and developers may be more likely to adopt and rely on Pesto for password strength evaluation.
+Comparing Pesto to a well-known and trusted password strength estimator like zxcvbn can help build trust in Pesto's capabilities. If Pesto performs well against zxcvbn, users and developers may be more likely to adopt and rely on Pesto for password strength evaluation.
 
 #### Understanding Real-World Performance 
 
 Testing Pesto against a large dataset of passwords, such as the 720,000 passwords in [000webhost.txt](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Leaked-Databases/000webhost.txt) from the [SecLists repository](https://github.com/danielmiessler/SecLists), helps to understand how Pesto performs in real-world scenarios. This can reveal any potential biases or shortcomings in Pesto's approach to password strength estimation and inform potential improvements.
 
 ### Test Results
-Below is a chart and the associated table showing the results of testing Zxcvbn vs. Pesto (when he is Bored, Curious, Alert, and Fascinated) against the 000webhost.txt dataset of passwords from SecList.
+Below is a chart and the associated table showing the results of testing zxcvbn vs. Pesto (when he is Bored, Curious, Alert, and Fascinated) against the 000webhost.txt dataset of passwords from SecList.
 
-![Pesto5chart](https://github.com/aardev14/Pesto/assets/51981572/c801a238-53c0-4e9c-bc8b-f6aca658582c)
+![Pesto5chart](https://github.com/aardev14/Pesto/assets/51981572/631c2b85-1507-426e-98ea-13dec5c426c0)
 
-![Pesto5table](https://github.com/aardev14/Pesto/assets/51981572/32207e9e-a4e4-4a6d-8b94-671b4c16f6cb)
+![Pesto5table](https://github.com/aardev14/Pesto/assets/51981572/8ecd1a35-4e3e-4a8f-b0a1-5a0f2c4e2841)
 
-[Tests](https://github.com/aardev14/Pesto/tree/main/test) can be found in this repository, so you can run them yourself if you would like to confirm the data shown on the chart. In summary, comparing Pesto to Zxcvbn is essential for establishing Pesto's credibility as a password strength estimator, understanding its strengths and weaknesses, and guiding its development and improvement. If you would like to test Pesto with the 720,000 passwords from the SecLists repository, download the dataset, then process and evaluate each password using both Pesto and Zxcvbn. Record the scores and compare their performance.
+[Tests](https://github.com/aardev14/Pesto/tree/main/test) can be found in this repository, so you can run them yourself if you would like to confirm the data shown on the chart. In summary, comparing Pesto to zxcvbn is essential for establishing Pesto's credibility as a password strength estimator, understanding its strengths and weaknesses, and guiding its development and improvement. If you would like to test Pesto with the 720,000 passwords from the SecLists repository, download the dataset, then process and evaluate each password using both Pesto and zxcvbn. Record the scores and compare their performance.
 
 ## Technical Research
 ### Password Normalization
@@ -216,7 +216,7 @@ Follows normalization based on Leet rules found here:
 
 ### Bad Password List
 
-The bad password list used in Pesto includes [data](https://github.com/dropbox/zxcvbn/tree/master/data) used by the Zxcvbn project - in addition to even more data! I have added the [Top 100,000 common passwords from SecList](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10-million-password-list-top-100000.txt), the [BIP39 word list](https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt), popular cryptocurrency terms, years, months, and days. It also contains strings that get detected by the algorithm to check for keyboard patterns, character repetition, letter sequencing, and number sequencing. There are over 175,000 entries in this list. 
+The bad password list used in Pesto includes [data](https://github.com/dropbox/zxcvbn/tree/master/data) used by the zxcvbn project - in addition to even more data! I have added the [Top 100,000 common passwords from SecList](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10-million-password-list-top-100000.txt), the [BIP39 word list](https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt), popular cryptocurrency terms, years, months, and days. It also contains strings that get detected by the algorithm to check for keyboard patterns, character repetition, letter sequencing, and number sequencing. There are over 175,000 entries in this list. 
 
 ### Helpful Links
 - https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html
