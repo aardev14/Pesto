@@ -124,7 +124,7 @@ using (var pesto = new Pesto())
 ## Recommended Parameters
 Your can customize the parameters of the evaluate function to be as strict as needed for your application. These are the recommended parameters that I have used in my testing against Zxcvbn. Requirements vary based on how the password is hashed, the key derivation function used, the likelihood of offline attacks, etc. Additionally there are differing views when it comes to complexity requirements. Read [NIST Special Publication 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) for more information. It is important to note that password length is valued over password complextiy.
 
-**Depending on your application requirements, you should always accept a Pesto score of 4. Optionally accept a Pesto score of 3.**
+**You should always accept a Pesto score of 4. You can accept a Pesto score of 3, but it is not recommended. Instead of accepting a Pesto score of 3, you should just lower your parameter values.
 
 ### 1. Bored Pesto
 Call `Evaluate(password, 2, 8, true, true, true, true, false)`
