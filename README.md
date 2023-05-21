@@ -65,7 +65,7 @@ You should put all instances of Pesto in a `using` statement to release resource
 char[] password = { 'P', 'r', 'e', 's', 't', 'o', 'P', 'e', 's', 't', 'o', '!' }; //get this from your own keyboard UI
 
 int matchPoints = 3;
-int minChars = 14;
+int minChars = 12;
 int pestoScore = 0;
 
 using (var pesto = new Pesto())
@@ -122,37 +122,58 @@ using (var pesto = new Pesto())
       - **0 (Very Weak)** - Needs at least 0 match points and at least 0 complexity points
 
 ## Recommended Parameters
-Your can customize the parameters of the evaluate function to be as strict as needed for your application. These are just the recommended parameters that I have used in my testing against Zxcvbn. Requirements vary based on how the password is hashed, the key derivation function used, the likelihood of offline attacks, etc. Additionally there are differing views when it comes to complexity requirements. Read [NIST Special Publication 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) for more information.
+Your can customize the parameters of the evaluate function to be as strict as needed for your application. These are the recommended parameters that I have used in my testing against Zxcvbn. Requirements vary based on how the password is hashed, the key derivation function used, the likelihood of offline attacks, etc. Additionally there are differing views when it comes to complexity requirements. Read [NIST Special Publication 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) for more information. It is important to note that password length is valued over password complextiy.
 
-### Drowsy Pesto
-*Description: For minimally complex passwords, Pesto feels tired and disinterested. These passwords don't stimulate his intellect or engage his magical abilities, making him appear sleepy and unengaged.*
+**Depending on your application requirements, you should always accept a Pesto score of 4. Optionally accept a Pesto score of 3.**
 
+### 1. Bored Pesto
+Call `Evaluate(password, 2, 8, true, true, true, true, false)`
+
+#### Description 
+Average settings and "good enough" passwords leave Pesto feeling bored and unimpressed. They fail to challenge his intellect or make full use of his remarkable intelligence.
+
+#### Example
+*Web Service with Rate Limiting and 2FA (Minimum 8 Characters)*
+
+A social media platform like Twitter. Users on Twitter have profile pages where they post messages, images, and links. Even though users might not post sensitive personal information, it's essential to maintain account security to prevent impersonation, harassment, or trolling. Twitter implements rate limiting and two-factor authentication to help protect against unauthorized access, but the user's password is the first line of defense.
+
+### 2. Curious Pesto
 Call `Evaluate(password, 3, 12, true, true, true, true, false)`
 
-### Bored Pesto
-*Description: Average settings and "good enough" passwords leave Pesto feeling bored and unimpressed. They fail to challenge his intellect or make full use of his remarkable intelligence.*
+#### Description
+Moderate settings and somewhat complex passwords make Pesto feel slightly more engaged but not entirely captivated. He begins to pay more attention, but the passwords aren't quite challenging enough to fully interest him.
 
-Call `Evaluate(password, 3, 14, true, true, true, true, false)`
+#### Example
+*Medium Sensitivity Web Service (Minimum 12 Characters)*
 
-### Curious Pesto
-*Description: Moderate settings and somewhat complex passwords make Pesto feel slightly more engaged but not entirely captivated. He begins to pay more attention, but the passwords aren't quite challenging enough to fully interest him.*
+An e-commerce platform like Amazon. Users on these platforms have accounts where they can place orders, track shipments, and make returns. These accounts could contain credit card information, address information, and purchasing habits - sensitive data that should be safeguarded. Although these platforms typically use various security measures, the password is a key element of account security. A 12-character minimum helps prevent unauthorized access while maintaining usability for a broad user base.
 
+### 3. Alert Pesto
 Call `Evaluate(password, 4, 16, true, true, true, true, false)`
 
-### Alert Pesto
-*Description: Very strong settings and robust passwords require Pesto's keen intellect and cause him to feel highly focused and alert. He is completely engaged in the challenge and determined to apply his expertise to uncover any potential weaknesses.*
+#### Description
+Very strong settings and robust passwords require Pesto's keen intellect and cause him to feel highly focused and alert. He is completely engaged in the challenge and determined to apply his expertise to uncover any potential weaknesses.*
 
-Call `Evaluate(password, 5, 18, true, true, true, true, false)`
+#### Example
+*Offline Application with Brute Force Potential (Minimum 16 Characters)*
 
-### Fascinated Pesto
-*Description: Extremely strong settings and passwords with maximum complexity captivate Pesto completely. He is enthralled and mesmerized by the challenge, with his energy levels peaking as he devotes all his intellect and expertise to analyzing these formidable passwords.*
+An offline password manager like KeePass. This application is often used to store all kinds of passwords, from social media to bank accounts. It uses a master password to generate encryption keys that secure the stored data. If the database were stolen or leaked, the strength of the master password would be critical in preventing a successful offline brute force or dictionary attack. Hence, a 16-character minimum password is required, which provides significantly more combinations and resistance against attacks.
 
+### 4. Fascinated Pesto
 Call `Evaluate(password, 5, 20, true, true, true, true, false)`
 
-### Custom Pesto
-Although Zxcvbn is a great estimator, I developed Pesto to better arm developers to defend against dictionary attacks, specifically offline dictionary attacks. The testing shown below is evidence of Pesto's effectiveness compared to Zxcvbn. It is much stricter! If you are using weaker parameters, then you should implement things such as rate limiting and 2FA to make it significantly harder for attackers to guess passwords through brute force or dictionary-based methods.
+#### Description
+Extremely strong settings and passwords with maximum complexity captivate Pesto completely. He is enthralled and mesmerized by the challenge, with his energy levels peaking as he devotes all his intellect and expertise to analyzing these formidable passwords.*
 
-Call `Evaluate(password, x, y, true, true, true, true, false)`
+#### Example
+*High Sensitivity Web or Offline Service (Minimum 20 Characters)*
+
+A cryptocurrency wallet like Ledger and Trezor - or a seed phrase storage solution like [Splitcoin](www.splitcoin.com). I am the inventor and lead engineer for Splitcoin. These applications store the private keys or encryption keys needed to access and manage digital currencies like Bitcoin or Ethereum. If an attacker gains access to these keys, the financial loss could be significant - potentially the total value of the cryptocurrency stored in the wallet. This makes the wallet a high-value target, and a long, complex password is essential. With a 20-character minimum, the password forms a strong line of defense against both online and offline attacks.
+
+### Custom Pesto
+Call `Evaluate(password, requiredMatchPoints, requiredNumberOfCharacters, true, true, true, true, false)`
+
+Although Zxcvbn is a great estimator, I developed Pesto to better arm developers to defend against dictionary attacks, specifically offline dictionary attacks. The testing shown below is evidence of Pesto's effectiveness compared to Zxcvbn. It is much stricter! If you are using weaker parameters, then you should implement things such as rate limiting and 2FA to make it significantly harder for attackers to guess passwords through brute force or dictionary-based methods. Regardless of the nature of your application or the parameters used, a memory-hard password hashing function such as Argon2id or Scrypt should be used.
  
 ## Testing
 Testing Pesto against Zxcvbn is important to prove that it is a reliable password strength estimator because it provides a basis for comparison and helps to validate Pesto's effectiveness.
@@ -178,11 +199,11 @@ Comparing Pesto to a well-known and trusted password strength estimator like Zxc
 Testing Pesto against a large dataset of passwords, such as the 720,000 passwords from the [SecLists repository](https://github.com/danielmiessler/SecLists) (https://github.com/danielmiessler/SecLists/blob/master/Passwords/Leaked-Databases/000webhost.txt), helps to understand how Pesto performs in real-world scenarios. This can reveal any potential biases or shortcomings in Pesto's approach to password strength estimation and inform potential improvements.
 
 ### Test Results
-Below is a chart and the associated table showing the results of testing Zxcvbn vs. Pesto (when he is Drowsy, Bored, Curious, Alert, and Fascinated) against the 000webhost.txt dataset of passwords from SecList.
+Below is a chart and the associated table showing the results of testing Zxcvbn vs. Pesto (when he is Bored, Curious, Alert, and Fascinated) against the 000webhost.txt dataset of passwords from SecList.
 
-![Pestochart](https://github.com/aardev14/Pesto/assets/51981572/062388b8-bd7d-472b-9cbb-b44c1b5d2caa)
+![Pesto5chart](https://github.com/aardev14/Pesto/assets/51981572/c801a238-53c0-4e9c-bc8b-f6aca658582c)
 
-![pestotable](https://github.com/aardev14/Pesto/assets/51981572/99318ccf-c2ff-4def-bb62-493de6af8896)
+![Pesto5table](https://github.com/aardev14/Pesto/assets/51981572/f3e3ebec-50ce-4884-ae22-b9ef27804a69)
 
 [Tests](https://github.com/aardev14/Pesto/tree/main/test) can be found in this repository, so you can run them yourself if you would like to confirm the data shown on the chart. In summary, comparing Pesto to Zxcvbn is essential for establishing Pesto's credibility as a password strength estimator, understanding its strengths and weaknesses, and guiding its development and improvement. If you would like to test Pesto with the 720,000 passwords from the SecLists repository, download the dataset, then process and evaluate each password using both Pesto and Zxcvbn. Record the scores and compare their performance.
 
