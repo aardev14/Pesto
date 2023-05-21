@@ -205,7 +205,7 @@ Below is a chart and the associated table showing the results of testing zxcvbn 
 
 ![Pesto5table](https://github.com/aardev14/Pesto/assets/51981572/8ecd1a35-4e3e-4a8f-b0a1-5a0f2c4e2841)
 
-[Tests](https://github.com/aardev14/Pesto/tree/main/test) can be found in this repository, so you can run them yourself if you would like to confirm the data shown on the chart. In summary, comparing Pesto to zxcvbn is essential for establishing Pesto's credibility as a password strength estimator, understanding its strengths and weaknesses, and guiding its development and improvement. If you would like to test Pesto with the 720,000 passwords from the SecLists repository, download the dataset, then process and evaluate each password using both Pesto and zxcvbn. Record the scores and compare their performance.
+[Tests](https://github.com/aardev14/Pesto/tree/main/test) can be found in this repository, so you can run them yourself if you would like to confirm the data shown on the chart. Additionally, you can modify parameters and run zxcvbn comparison testing to discover what parameters work best for your application. In summary, comparing Pesto to zxcvbn is essential for establishing Pesto's credibility as a password strength estimator, understanding its strengths and weaknesses, and guiding its development and improvement. 
 
 ## Technical Research
 ### Password Normalization
