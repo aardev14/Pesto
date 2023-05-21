@@ -11,7 +11,7 @@ namespace PestoTests
     public static class Tests
     {
         /// <summary>
-        /// This will compare the scoring of Zxcvbn and Pesto using various parameters. Using higher match points and higher minimum characters will result in a stricter password estimator.
+        /// This will compare the scoring of zxcvbn and Pesto using various parameters. Using higher match points and higher minimum characters will result in a stricter password estimator.
         /// The results will be printed to the console. You can plot these in Excel and create a visual such as a bar graph to better illustrate the data.
         /// </summary>
         /// <param name="matchPoints">The match points parameter passed to the Evaluate() function</param>
@@ -40,12 +40,12 @@ namespace PestoTests
                 scores[i] = new int[5];
             }
 
-            //Evaluate every password with Zxcvbn and Pesto.
+            //Evaluate every password with zxcvbn and Pesto.
             int savedPercentComplete = 0;
             Console.WriteLine("Percentage Complete: 0%");
             for (int i = 0; i < passwords.Count; ++i)
             {
-                //Get Zxcvbn score.
+                //Get zxcvbn score.
                 int zxcvbnScore = Zxcvbn.Core.EvaluatePassword(passwords[i]).Score;
 
                 //Get Pesto score.
@@ -69,13 +69,13 @@ namespace PestoTests
 
             //Show results.
             Console.WriteLine("=======================================\n");
-            Console.WriteLine("Zxcvbn vs Pesto Scoring Test - On 720,000 Passwords)");
+            Console.WriteLine("zxcvbn vs Pesto Scoring Test - On 720,000 Passwords)");
             Console.WriteLine("Match Points: " + matchPoints + " | Minimum Characters: " + minChars + "\n\n");
             for (int z = 0; z < 5; z++)
             {
                 for (int t = 0; t < 5; t++)
                 {
-                    Console.WriteLine("Zxcvbn: " + z + " | Pesto: " + t + " | Count: " + scores[z][t]);
+                    Console.WriteLine("zxcvbn: " + z + " | Pesto: " + t + " | Count: " + scores[z][t]);
                 }
             }
             Console.WriteLine("\n=======================================");
@@ -106,7 +106,7 @@ namespace PestoTests
                 passwords.Add(leakedwWords[i].Replace("\n", "").Replace("\r", ""));
             }
 
-            //Evaluate passwords with Zxcvbn and Pesto.
+            //Evaluate passwords with zxcvbn and Pesto.
             double pestoTime = 0.0;
             Stopwatch watch = Stopwatch.StartNew();
             for (int i = 0; i < numPasswords; ++i)

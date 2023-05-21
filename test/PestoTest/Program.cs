@@ -47,7 +47,7 @@ await Task.Delay(2000);
 while (true)
 {
     //Pesto will ask the user what test they want to run.
-    Console.WriteLine("\nChoose a test to run:\n[1] Pesto Latency Test\n[2] Zxcvbn vs Bored Pesto Scoring Test\n[3] Zxcvbn vs Curious Pesto Scoring Test\n[4] Zxcvbn vs Alert Pesto Scoring Test\n[5] Zxcvbn vs Fascinated Pesto Scoring Test\n[6] Zxcvbn vs Custom Pesto Scoring Test\n[7] Run Pesto\n[8] Run All Pesto Scoring Tests\n[9] Say Goodbye");
+    Console.WriteLine("\nChoose a test to run:\n[1] Pesto Latency Test\n[2] zxcvbn vs Bored Pesto Scoring Test\n[3] zxcvbn vs Curious Pesto Scoring Test\n[4] zxcvbn vs Alert Pesto Scoring Test\n[5] zxcvbn vs Fascinated Pesto Scoring Test\n[6] zxcvbn vs Custom Pesto Scoring Test\n[7] Run Pesto\n[8] Run All Pesto Scoring Tests\n[9] Say Goodbye");
     Console.WriteLine("Enter a value from 1-9:");
     String testNumber = Console.ReadLine();
 
@@ -66,7 +66,7 @@ while (true)
     }
     else if (testNumber == "2")
     {
-        Console.WriteLine("Running Zxcvbn vs Bored Pesto Scoring Test...");
+        Console.WriteLine("Running zxcvbn vs Bored Pesto Scoring Test...");
         await Task.Delay(250);
         Console.WriteLine("This may take a while...");
         await Task.Delay(250);
@@ -76,7 +76,7 @@ while (true)
     else if (testNumber == "3")
     {
 
-        Console.WriteLine("Running Zxcvbn vs Curious Pesto Scoring Test...");
+        Console.WriteLine("Running zxcvbn vs Curious Pesto Scoring Test...");
         await Task.Delay(250);
         Console.WriteLine("This may take a while...");
         await Task.Delay(250);
@@ -85,7 +85,7 @@ while (true)
     }
     else if (testNumber == "4")
     {
-        Console.WriteLine("Running Zxcvbn vs Alert Pesto Scoring Test...");
+        Console.WriteLine("Running zxcvbn vs Alert Pesto Scoring Test...");
         await Task.Delay(250);
         Console.WriteLine("This may take a while...");
         await Task.Delay(250);
@@ -94,7 +94,7 @@ while (true)
     }
     else if (testNumber == "5")
     {
-        Console.WriteLine("Running Zxcvbn vs Fascinated Pesto Scoring Test...");
+        Console.WriteLine("Running zxcvbn vs Fascinated Pesto Scoring Test...");
         await Task.Delay(250);
         Console.WriteLine("This may take a while...");
         await Task.Delay(250);
@@ -127,7 +127,7 @@ while (true)
             catch (Exception ex) { }
         }
 
-        Console.WriteLine("Running Zxcvbn vs Custom Pesto Scoring Test...");
+        Console.WriteLine("Running zxcvbn vs Custom Pesto Scoring Test...");
         await Task.Delay(250);
         Console.WriteLine("This may take a while...");
         await Task.Delay(250);
@@ -142,28 +142,28 @@ while (true)
     }
     else if (testNumber == "8") { 
           
-        Console.WriteLine("Running Zxcvbn vs Bored Pesto Scoring Test...");
+        Console.WriteLine("Running zxcvbn vs Bored Pesto Scoring Test...");
         await Task.Delay(250);
         Console.WriteLine("This may take a while...");
         await Task.Delay(250);
         Tests.CompareZxcvbnScoring(2, 8);
         Console.WriteLine("Done!");
 
-        Console.WriteLine("Running Zxcvbn vs Curious Pesto Scoring Test...");
+        Console.WriteLine("Running zxcvbn vs Curious Pesto Scoring Test...");
         await Task.Delay(250);
         Console.WriteLine("This may take a while...");
         await Task.Delay(250);
         Tests.CompareZxcvbnScoring(3, 12);
         Console.WriteLine("Done!");
           
-        Console.WriteLine("Running Zxcvbn vs Alert Pesto Scoring Test...");
+        Console.WriteLine("Running zxcvbn vs Alert Pesto Scoring Test...");
         await Task.Delay(250);
         Console.WriteLine("This may take a while...");
         await Task.Delay(250);
         Tests.CompareZxcvbnScoring(4, 16);
         Console.WriteLine("Done!");
           
-        Console.WriteLine("Running Zxcvbn vs Fascinated Pesto Scoring Test...");
+        Console.WriteLine("Running zxcvbn vs Fascinated Pesto Scoring Test...");
         await Task.Delay(250);
         Console.WriteLine("This may take a while...");
         await Task.Delay(250);
