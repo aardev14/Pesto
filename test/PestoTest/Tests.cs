@@ -132,7 +132,7 @@ namespace PestoTests
         }
 
         /// <summary>
-        /// Run Pesto with Drowsy settings - 3 match points and 12 minimum characters. They can be changed in code if needed.
+        /// Run Pesto with Curious settings - 3 match points and 12 minimum characters. They can be changed in code if needed.
         /// </summary>
         public static void RunPesto()
         {
@@ -150,7 +150,7 @@ namespace PestoTests
                 pestoScore = pesto.Evaluate(password.ToCharArray(), matchPoints, minChars, true, true, true, true, true);
             }
 
-            //Evaluate the password with Drowsy Pesto. You can adjust the match points and minimum characters as needed. Refer to the Github for more info.
+            //Evaluate the password with Curious Pesto. You can adjust the match points and minimum characters as needed. Refer to the Github for more info.
             Console.WriteLine("Pesto Score: " + pestoScore);
         }
     }
