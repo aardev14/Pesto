@@ -223,6 +223,9 @@ The bad password list used in Pesto includes [data](https://github.com/dropbox/z
 - https://crackstation.net/hashing-security.htm
 - https://nordpass.com/blog/what-is-a-dictionary-attack/
 - https://github.com/trichards57/zxcvbn-cs/tree/master/zxcvbn-core/Dictionaries
+- https://support.microsoft.com/en-us/windows/create-and-use-strong-passwords-c5cebb49-8c53-4f5e-2bc4-fe357ca048eb
+- https://bitwarden.com/blog/how-long-should-my-password-be/
+- https://blog.lastpass.com/2022/01/how-often-should-you-change-your-master-password/
 
 Pesto is free, open source software. I will continue to reveal the magical powers of Pesto (more features) in future releases. If you found it helpful for your project...I always appreciate ZEC to help keep it going! :)
 
