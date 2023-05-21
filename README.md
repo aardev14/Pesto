@@ -216,7 +216,7 @@ Follows normalization based on Leet rules found here:
 
 ### Bad Password List
 
-The bad password list used in Pesto includes [data](https://github.com/dropbox/zxcvbn/tree/master/data) used by the zxcvbn project - in addition to even more data! I have added the [Top 100,000 common passwords from SecList](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10-million-password-list-top-100000.txt), the [BIP39 word list](https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt), popular cryptocurrency terms, years, months, and days. It also contains strings that get detected by the algorithm to check for keyboard patterns, character repetition, letter sequencing, and number sequencing. There are over 175,000 entries in this list. 
+The bad password list used in Pesto includes [data](https://github.com/dropbox/zxcvbn/tree/master/data) used by the zxcvbn project in addition to even more data! I have added the [Top 100,000 common passwords from SecList](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10-million-password-list-top-100000.txt), the [BIP39 word list](https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt), popular cryptocurrency terms, years, months, and days. It also contains strings that get detected by the algorithm to check for keyboard patterns, character repetition, letter sequencing, and number sequencing. There are over 175,000 entries in this list. 
 
 ### Helpful Links
 - https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html
