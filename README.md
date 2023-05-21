@@ -37,7 +37,7 @@ I created the algorithm by blending features from Zxcbn and Azure AD Password Pr
 #### Option #2: Add Source Code Directly To Your Project
 1. Locate the [src](https://github.com/aardev14/Pesto/tree/main/src) folder found here and load in the following two files to your project: [Pesto.cs](https://github.com/aardev14/Pesto/blob/main/src/Pesto.cs) and [BadPasswords.csv](https://github.com/aardev14/Pesto/blob/main/src/BannedWords.csv).
 2. Change the properties of the BadPasswords.csv file to **Build Action: Embedded Resource** and **Copy to output directory: Do not copy**.
-3. Copy the Resource ID of BadPasswords.csv under Properties. You will need to replace the placeholder text in the Pesto.Initalize() function definition where it says *"[RESOURCE-ID-GOES-HERE]"*.
+3. Copy the Resource ID of BadPasswords.csv under Properties. You will need to replace the placeholder text in the Pesto.Init() function definition where it says *"[RESOURCE-ID-GOES-HERE]"*.
 
 
 ### Initialize
