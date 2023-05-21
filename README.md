@@ -81,7 +81,7 @@ using (var pesto = new Pesto())
 2. **Order List**: Order the list in descending order by word length. This is important for how the algorithm checks for bad passwords. It prioritizes finding the longer words that exist in the password.
 
 ### Evaluate
-1. **Normalize Password**: Set the password p to all lowercase. This ensures that the password is in lowercase for consistent processing. Normalize the password based on Leet values. Leet substitutions are character replacements commonly used to represent letters with symbols or numbers. For example, "leet" can be represented as "1337". This step modifies the password string p accordingly.
+1. **Normalize Password**: Set the password p to all lowercase. This ensures that the password is in lowercase for consistent processing. Normalize the password based on Leet values. Leet substitutions are character replacements commonly used to represent letters with symbols or numbers. For example, "leet" can be represented as "1337". This step modifies the password p accordingly.
 2. **Match Password**: 
 
 <p align="justify">
@@ -91,7 +91,7 @@ using (var pesto = new Pesto())
   
 - Initialize the good character count to 0: This variable counts the number of valid (non-banned) characters in the password.
   
-- The code then enters a loop that iterates over each character c in the password string p.
+- The code then enters a loop that iterates over each character c in the password p.
   
 - Inside the outer loop, there is another loop that iterates over each word w in the banned word list b.
   
@@ -109,12 +109,12 @@ using (var pesto = new Pesto())
   
 - The code updates the password p to the new character array with the remaining non-replacement characters.
   
-- Finally, the code clears the temporary array and sets c to -1. Setting c to -1 at the end of the outer loop effectively resets the loop counter c to 0 in the next iteration. This ensures that after making modifications to the password string p, the loop starts from the beginning to re-evaluate each remaining character against the banned words.
+- Finally, the code clears the temporary array and sets c to -1. Setting c to -1 at the end of the outer loop effectively resets the loop counter c to 0 in the next iteration. This ensures that after making modifications to the password p, the loop starts from the beginning to re-evaluate each remaining character against the banned words.
 </p>  
   
 3. **Calculate Match Points**: Convert remaining characters to points. Add these points with the good character count and the banned word count. *Match Points = Remaining Characters + Good Character Count + Banned Word Count*
 4. **Calculate Complexity Points**: Give one point for each complexity parameter: 1 Uppercase, 1 Lowercase, 1 Symbol, 1 Number, [Minimum Length] Length. If parameter requirements are set to false, those complexity points are awarded automatically.
-5. **Calculate Pesto Score** (Uses the same scoring range as Zxcvbn):
+5. **Calculate Pesto Score**:
       - **4 (Strong)** - Needs [matchPoints] match points and all 5 complexity points
       - **3 (Good)** - Needs [matchPoints - 1] match points and at least 4 complexity points
       - **2 (Average)** - Needs [matchPoints - 2] match points and at least 3 complexity points
@@ -122,7 +122,7 @@ using (var pesto = new Pesto())
       - **0 (Very Weak)** - Needs at least 0 match points and at least 0 complexity points
 
 ## Recommended Parameters
-Your can customize the parameters of the evaluate function to be as strict as needed for your application. These are the recommended parameters that I have used in my testing against Zxcvbn. Requirements vary based on how the password is hashed, the key derivation function used, the likelihood of offline attacks, etc. Additionally there are differing views when it comes to complexity requirements. Read [NIST Special Publication 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) for more information. It is important to note that password length is valued over password complextiy.
+Your can customize the parameters of the evaluate function to be as strict as needed for your application. These are the recommended parameters that I have used in my testing against Zxcvbn. Requirements vary based on how the password is hashed, the key derivation function used, the likelihood of offline attacks, etc. Additionally, there are differing views when it comes to complexity requirements. Read [NIST Special Publication 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) for more information. It is important to note that password length is valued over password complextiy.
 
 **You should always accept a Pesto score of 4. You can accept a Pesto score of 3, but it is not recommended. Instead of accepting a Pesto score of 3, you should just lower your parameter values.**
 
@@ -163,7 +163,7 @@ An offline password manager like KeePass. This application is often used to stor
 Call `Evaluate(password, 5, 20, true, true, true, true, false)`
 
 #### Description
-Extremely strong settings and passwords with maximum complexity captivate Pesto completely. He is enthralled and mesmerized by the challenge, with his energy levels peaking as he devotes all his intellect and expertise to analyzing these formidable passwords.*
+Extremely strong settings and passwords with maximum complexity captivate Pesto completely. He is enthralled and mesmerized by the challenge, with his energy levels peaking as he devotes all his intellect and expertise to analyzing these formidable passwords.
 
 #### Example
 *High Sensitivity Web or Offline Service (Minimum 20 Characters)*
@@ -203,7 +203,7 @@ Below is a chart and the associated table showing the results of testing Zxcvbn 
 
 ![Pesto5chart](https://github.com/aardev14/Pesto/assets/51981572/c801a238-53c0-4e9c-bc8b-f6aca658582c)
 
-![Pesto5table](https://github.com/aardev14/Pesto/assets/51981572/f3e3ebec-50ce-4884-ae22-b9ef27804a69)
+![Pesto5table](https://github.com/aardev14/Pesto/assets/51981572/32207e9e-a4e4-4a6d-8b94-671b4c16f6cb)
 
 [Tests](https://github.com/aardev14/Pesto/tree/main/test) can be found in this repository, so you can run them yourself if you would like to confirm the data shown on the chart. In summary, comparing Pesto to Zxcvbn is essential for establishing Pesto's credibility as a password strength estimator, understanding its strengths and weaknesses, and guiding its development and improvement. If you would like to test Pesto with the 720,000 passwords from the SecLists repository, download the dataset, then process and evaluate each password using both Pesto and Zxcvbn. Record the scores and compare their performance.
 
