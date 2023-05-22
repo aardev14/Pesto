@@ -1,4 +1,6 @@
 # Pesto 1.0.0
+[![nuget](https://img.shields.io/nuget/v/Pesto.PasswordStrengthEstimator.svg?label=nuget&colorB=green)](https://www.nuget.org/packages/Pesto.PasswordStrengthEstimator)
+
 ## What Is Pesto?
 Pesto is a secure password strength estimator blending features from [zxcvbn](https://dropbox.tech/security/zxcvbn-realistic-password-strength-estimation) and [Azure AD Password Protection](https://learn.microsoft.com/en-us/azure/active-directory/authentication/concept-password-ban-bad) used for sensitive applications that require mutable data structures. Pesto was developed in C# for .NET applications, but can easily be ported to other programming languages. Pesto is just a password strength estimator (for now), so you will need to implement your own virtual keyboard and call the evaluate function on key press events.
 
