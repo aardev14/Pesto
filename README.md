@@ -1,6 +1,6 @@
 # Pesto 1.0.0
 ## What Is Pesto?
-Pesto is a secure password strength estimator blending features from [zxcvbn](https://dropbox.tech/security/zxcvbn-realistic-password-strength-estimation) and [Azure AD Password Protection](https://learn.microsoft.com/en-us/azure/active-directory/authentication/concept-password-ban-bad) used for sensitive applications that require mutable data structures. Pesto was developed in C# for .NET applications, but can easily be coded in other programming languages. Pesto is just a password strength estimator (for now), so you will need to implement your own virtual keyboard and call the evaluate function on key press events.
+Pesto is a secure password strength estimator blending features from [zxcvbn](https://dropbox.tech/security/zxcvbn-realistic-password-strength-estimation) and [Azure AD Password Protection](https://learn.microsoft.com/en-us/azure/active-directory/authentication/concept-password-ban-bad) used for sensitive applications that require mutable data structures. Pesto was developed in C# for .NET applications, but can easily be ported to other programming languages. Pesto is just a password strength estimator (for now), so you will need to implement your own virtual keyboard and call the evaluate function on key press events.
 
 ## The Legend of Pesto
 <p align="justify">
@@ -30,11 +30,13 @@ I created the algorithm by blending features from zxcbn and Azure AD Password Pr
 
 ## Getting Started
 ### Load Into Project
+#### Option #1: Add the NuGet Package
+1. Simply add the Nuget package [Pesto.PasswordStrengthEstimator](https://www.nuget.org/packages/Pesto.PasswordStrengthEstimator) to your project and you are ready to go! You can run the test project called PestoTest found in the [test](https://github.com/aardev14/Pesto/tree/main/test) folder if you want to try it out quickly.
 
-#### Option #1: Add Pesto.dll As A Project Reference
-1. Simply add Pesto.dll found in the [lib](https://github.com/aardev14/Pesto/tree/main/lib) folder as a project reference in your project and you are up and running! You can run the test project called PestoTest found in the [test](https://github.com/aardev14/Pesto/tree/main/test) folder if you want to try it out quickly.
+#### Option #2: Add Pesto.dll As A Project Reference
+1. Add Pesto.dll found in the [lib](https://github.com/aardev14/Pesto/tree/main/lib) folder as a project reference in your project and you are up and running! You can run the test project called PestoTest found in the [test](https://github.com/aardev14/Pesto/tree/main/test) folder if you want to try it out quickly.
 
-#### Option #2: Add Source Code Directly To Your Project
+#### Option #3: Add Source Code Directly To Your Project
 1. Locate the [src](https://github.com/aardev14/Pesto/tree/main/src) folder found here and load in the following two files to your project: [Pesto.cs](https://github.com/aardev14/Pesto/blob/main/src/Pesto.cs) and [BadPasswords.csv](https://github.com/aardev14/Pesto/blob/main/src/BannedWords.csv).
 2. Change the properties of the BadPasswords.csv file to **Build Action: Embedded Resource** and **Copy to output directory: Do not copy**.
 3. Copy the Resource ID of BadPasswords.csv under Properties. You will need to replace the placeholder text in the Pesto.Init() function definition where it says *"[RESOURCE-ID-GOES-HERE]"*.
