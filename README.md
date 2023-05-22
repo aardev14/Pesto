@@ -4,8 +4,8 @@ Pesto is a secure password strength estimator blending features from [zxcvbn](ht
 
 ## The Legend of Pesto
 <p align="justify">
-  <img src="https://github.com/aardev14/Pesto/assets/51981572/8b4561bf-42e4-466e-9939-42a79fc7a3ab" alt="Pesto" width="384" align="right">
-  
+  <img src="https://github.com/aardev14/Pesto/assets/51981572/538e0cee-508a-49bd-9c2d-1f7e278506b6" alt="Pesto" width="384" align="right">
+
 In a charming Italian hamlet, there lived a magical parrot named Pesto, who was known to be rude at times. Pesto was far from an ordinary bird; he was a vibrant Italian parrot with feathers as green as the hills of Tuscany. Whispers of an ancient woodland spoke of the origin of Pesto's kind, the "Il Parrocchetto Incantato," where they gained their mystical abilities. Pesto, in particular, had an extraordinary memory, capable of recalling every word he ever heard.
 
 As the village transitioned into the digital age, Pesto's exceptional talents became incredibly valuable. With a strong connection to his Italian roots, Pesto's expertise in password security was highly coveted. Villagers would call upon him by yelling "Presto, Pesto!", and Pesto, sometimes grumpily, would arrive with a flap of his majestic wings. He would scrutinize passwords with his sharp intellect and enchanting Italian accent, earning the nickname "Pesto il Pappagallo delle Password" or the protector of their digital secrets, assisting the villagers in securing their data.
@@ -85,7 +85,7 @@ using (var pesto = new Pesto())
 2. **Match Password**: 
 
 <p align="justify">
-  <img src="https://github.com/aardev14/Pesto/assets/51981572/d839f939-be23-4330-837a-5a2f98bc0eae" alt="Pesto" width="384" align="right">
+  <img src="https://github.com/aardev14/Pesto/assets/51981572/4ce8b2dd-bf14-4bb4-84e6-7a2f3a7fb729" alt="Pesto" width="384" align="right">
 
 - Initialize the banned word count to 0: This variable keeps track of the number of banned words found in the password.
   
@@ -201,9 +201,9 @@ Testing Pesto against a large dataset of passwords, such as the 720,000 password
 ### Test Results
 Below is a chart and the associated table showing the results of testing zxcvbn vs. Pesto (when he is Bored, Curious, Alert, and Fascinated) against the 000webhost.txt dataset of passwords from SecList.
 
-![Pesto5chart](https://github.com/aardev14/Pesto/assets/51981572/631c2b85-1507-426e-98ea-13dec5c426c0)
+![pestochart](https://github.com/aardev14/Pesto/assets/51981572/7b5a67b0-4f57-4451-b780-282ead4d051a)
 
-![Pesto5table](https://github.com/aardev14/Pesto/assets/51981572/8ecd1a35-4e3e-4a8f-b0a1-5a0f2c4e2841)
+![pestotable](https://github.com/aardev14/Pesto/assets/51981572/02c5ba3e-1c37-427e-85e4-b6dcebe037dd)
 
 [Tests](https://github.com/aardev14/Pesto/tree/main/test) can be found in this repository, so you can run them yourself if you would like to confirm the data shown on the chart. Additionally, you can modify parameters and run zxcvbn comparison testing to discover what parameters work best for your application. In summary, comparing Pesto to zxcvbn is essential for establishing Pesto's credibility as a password strength estimator, understanding its strengths and weaknesses, and guiding its development and improvement. 
 
@@ -227,7 +227,6 @@ The bad password list used in Pesto includes [data](https://github.com/dropbox/z
 - https://bitwarden.com/blog/how-long-should-my-password-be/
 - https://blog.lastpass.com/2022/01/how-often-should-you-change-your-master-password/
 
-Pesto is free, open source software. I will continue to reveal the magical powers of Pesto (more features) in future releases. If you found it helpful for your project...I always appreciate ZEC to help keep it going! :)
+Pesto is free, open source software. I will continue to reveal the magical powers of Pesto (more features) in future releases. If you found it helpful for your project...I always appreciate a donation of ZEC to help keep it going! :)
 
-![zec](https://github.com/aardev14/Pesto/assets/51981572/bd688a54-b524-47bd-be79-6a62bc8d8c19)
-
+![pestozec](https://github.com/aardev14/Pesto/assets/51981572/db168b5f-8347-4f8b-93d6-1cb643635ded)
