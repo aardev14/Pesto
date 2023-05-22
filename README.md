@@ -30,7 +30,7 @@ I created the algorithm by blending features from zxcbn and Azure AD Password Pr
 
 ## Getting Started
 ### Load Into Project
-#### Option #1: Add the NuGet Package
+#### Option #1: Add The NuGet Package
 1. Simply add the Nuget package [Pesto.PasswordStrengthEstimator](https://www.nuget.org/packages/Pesto.PasswordStrengthEstimator) to your project and you are ready to go! You can run the test project called PestoTest found in the [test](https://github.com/aardev14/Pesto/tree/main/test) folder if you want to try it out quickly.
 
 #### Option #2: Add Pesto.dll As A Project Reference
@@ -229,6 +229,6 @@ The bad password list used in Pesto includes [data](https://github.com/dropbox/z
 - https://bitwarden.com/blog/how-long-should-my-password-be/
 - https://blog.lastpass.com/2022/01/how-often-should-you-change-your-master-password/
 
-Pesto is free, open source software. I will continue to reveal the magical powers of Pesto (more features) in future releases. If you found it helpful for your project...I always appreciate a donation of ZEC to help keep it going! :)
+Pesto is free, open source software. I will continue to reveal the magical powers of Pesto (more features) in future releases. If you found it helpful for your project...I always appreciate a ZEC donation to help keep it going! :)
 
 ![pestozec](https://github.com/aardev14/Pesto/assets/51981572/db168b5f-8347-4f8b-93d6-1cb643635ded)
