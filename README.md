@@ -19,12 +19,12 @@ With Pesto's help, the villagers found comfort and trust, despite his occasional
 ## The Password Parrot 
 *"If I 'ad a euro for every brain cell involved in-a coming up with that password, I'd be-a bankrupt." -Pesto*
 
-Pesto is a magical talking parrot who can be called upon for his password estimation skills!
-1. **Fuzzy** - Pesto, like all parrots, has fuzzy feathers! This password estimator tracks fuzz (1 edit distance) to find bad passwords.
-2. **Rude** - Pesto has quite the mouth on him and is known for having a lot of bad words in his vocabulary! This password estimator matches your password against a list of "bad" words (bad passwords).
-3. **Protective** - Pesto is always protective of the villagers! This password estimator is used to ensure a high quality password is chosen. It also has flexible parameters to provide different levels of protection!
-4. **Magical** - Pesto is a magical parrot who has will come to you when called. His presence is mutable, as he can never be found until he is called again. This magical password estimator will only store your password in character arrays (mutable) that are zeroed out. It never stores data as a string (immutable).
-5. **Reliable** - Pesto may be a rude parrot, but he knows his stuff and is only one call away! He can rate your password in just a few milliseconds. This password estimator is a simple, reliable tool for all applications that require a simple and secure password strength estimator. 
+Pesto is a magical talking parrot who can be called upon for his password strength estimation skills!
+1. **Fuzzy** - Pesto, like all parrots, has fuzzy feathers! This password strength estimator tracks fuzz (1 edit distance) to find bad passwords.
+2. **Rude** - Pesto has quite the mouth on him and is known for having a lot of bad words in his vocabulary! This password strength estimator matches your password against a list of "bad" words (bad passwords).
+3. **Protective** - Pesto is always protective of the villagers! This password strength estimator is used to ensure a high quality password is chosen. It also has flexible parameters to provide different levels of protection!
+4. **Magical** - Pesto is a magical parrot who has will come to you when called. His presence is mutable, as he can never be found until he is called again. This magical password strength estimator will only store your password in character arrays (mutable) that are zeroed out. It never stores data as a string (immutable).
+5. **Reliable** - Pesto may be a rude parrot, but he knows his stuff and is only one call away! He can rate your password in just a few milliseconds. This password strength estimator is a simple, reliable tool for all applications that require a simple and secure password strength estimator. 
 ## The Design
 I created the algorithm by blending features from zxcbn and Azure AD Password Protection: 
 - https://learn.microsoft.com/en-us/azure/active-directory/authentication/concept-password-ban-bad
@@ -81,11 +81,11 @@ using (var pesto = new Pesto())
 ## The Algorithm
 
 ### Initialize
-1. **Normalize List**: When the application starts load all words from the banned word list with 3 or more characters. Create the new list (no duplicates) by using all normalization words for each word. This means removing all Leetspeak and making every word lowercase. This list will be static and can be called by Pesto class directly so that all future instances of Pesto can use the normalized list.
+1. **Normalize List**: When the application starts load all words from the banned word list with 3 or more characters. Create the new list (no duplicates) by using all normalization words for each word. This means removing all Leetspeak and making every word lowercase. This list is static so that all future instances of Pesto can use the normalized list when evaluating a password.
 2. **Order List**: Order the list in descending order by word length. This is important for how the algorithm checks for bad passwords. It prioritizes finding the longer words that exist in the password.
 
 ### Evaluate
-1. **Normalize Password**: Set the password p to all lowercase. This ensures that the password is in lowercase for consistent processing. Normalize the password based on Leet values. Leet substitutions are character replacements commonly used to represent letters with symbols or numbers. For example, "leet" can be represented as "1337". This step modifies the password p accordingly.
+1. **Normalize Password**: Set the password p to all lowercase. This ensures that the password is in lowercase for consistent processing. Normalize the password based on Leet values. Leet substitutions are character replacements commonly used to represent letters with symbols or numbers. For example, "leet" can be represented as "L337". This step modifies the password p accordingly.
 2. **Match Password**: 
 
 <p align="justify">
@@ -126,7 +126,7 @@ using (var pesto = new Pesto())
       - **0 (Very Weak)** - Needs at least 0 match points and at least 0 complexity points
 
 ## Recommended Parameters
-Your can customize the parameters of the evaluate function to be as strict as needed for your application. These are the recommended parameters that I have used in my testing against zxcvbn. Requirements vary based on how the password is hashed, the key derivation function used, the likelihood of offline attacks, etc. Additionally, there are differing views when it comes to complexity requirements. Read [NIST Special Publication 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) for more information. It is important to note that password length is valued over password complextiy.
+Your can customize the parameters of the evaluate function to be as strict as needed for your application. These are the recommended parameters that I have used in my testing against zxcvbn. Requirements vary based on how the password is hashed, the parameters of the key derivation function used, the likelihood of offline attacks, rate limiting, 2FA, etc. Additionally, there are differing views when it comes to complexity requirements. Read [NIST Special Publication 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html#memsecretver) for more information. It is important to note that password length is valued over password complextiy.
 
 **You should always accept a Pesto score of 4. You can accept a Pesto score of 3, but it is not recommended. Instead of accepting a Pesto score of 3, you should just lower your parameter values.**
 
