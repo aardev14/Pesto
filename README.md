@@ -156,7 +156,7 @@ An e-commerce platform like Amazon. Users on these platforms have accounts where
 Call `Evaluate(password, 4, 16, true, true, true, true, false)`
 
 #### Description
-Very strong settings and robust passwords require Pesto's keen intellect and cause him to feel highly focused and alert. He is completely engaged in the challenge and determined to apply his expertise to uncover any potential weaknesses.*
+Very strong settings and robust passwords require Pesto's keen intellect and cause him to feel highly focused and alert. He is completely engaged in the challenge and determined to apply his expertise to uncover any potential weaknesses.
 
 #### Example
 *Offline Application with Brute Force Potential (Minimum 16 Characters)*
@@ -172,7 +172,7 @@ Extremely strong settings and passwords with maximum complexity captivate Pesto 
 #### Example
 *High Sensitivity Web or Offline Service (Minimum 20 Characters)*
 
-A cryptocurrency wallet like Ledger and Trezor - or a seed phrase storage solution like [Splitcoin](https://www.splitcoin.com). I am the founder and lead engineer for Splitcoin. These applications store the private keys or encryption keys needed to access and manage digital currencies like Bitcoin or Ethereum. If an attacker gains access to these keys, the financial loss could be significant - potentially the total value of the cryptocurrency stored in the wallet. This makes the wallet a high-value target, and a long, complex password is essential. With a 20-character minimum, the password forms a strong line of defense against both online and offline attacks.
+A cryptocurrency wallet like Ledger and Trezor - or a seed phrase storage solution like [Splitcoin](https://www.splitcoin.com). I am the founder and lead engineer of Splitcoin. These applications store the private keys or encryption keys needed to access and manage digital currencies like Bitcoin or Ethereum. If an attacker gains access to these keys, the financial loss could be significant - potentially the total value of the cryptocurrency stored in the wallet. This makes the wallet a high-value target, and a long, complex password is essential. With a 20-character minimum, the password forms a strong line of defense against both online and offline attacks.
 
 ### Custom Pesto
 Call `Evaluate(password, requiredMatchPoints, requiredNumberOfCharacters, true, true, true, true, false)`
