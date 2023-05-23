@@ -81,7 +81,7 @@ using (var pesto = new Pesto())
 ## The Algorithm
 
 ### Initialize
-1. **Normalize List**: When the application starts load all words from the banned word list with 3 or more characters. Create the new list (no duplicates) by using all normalization words for each word. This means removing all Leetspeak and making every word lowercase. This list is static so that all future instances of Pesto can use the normalized list when evaluating a password.
+1. **Normalize List**: When the application starts, it load all words from the banned word list with 3 or more characters. It creates the new list (no duplicates) by using all normalized words for each word. This means removing all Leetspeak and making every word lowercase. This list is static so that all future instances of Pesto can use the normalized list when evaluating a password.
 2. **Order List**: Order the list in descending order by word length. This is important for how the algorithm checks for bad passwords. It prioritizes finding the longer words that exist in the password.
 
 ### Evaluate
