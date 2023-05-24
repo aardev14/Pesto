@@ -1,5 +1,5 @@
 # Pesto 1.0.0     
-[![nuget](https://img.shields.io/nuget/v/Pesto.PasswordStrengthEstimator.svg?label=nuget&colorB=brightgreen)](https://www.nuget.org/packages/Pesto.PasswordStrengthEstimator) [![Demo](https://img.shields.io/badge/Demo-brightgreen?style=flat)](https://pesto.software)    
+[![nuget](https://img.shields.io/nuget/v/Pesto.PasswordStrengthEstimator.svg?label=nuget&colorB=brightgreen)](https://www.nuget.org/packages/Pesto.PasswordStrengthEstimator) [![Demo](https://img.shields.io/badge/Demo-brightgreen?style=flat)](https://www.pesto.software)    
 
 
 
