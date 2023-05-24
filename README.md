@@ -1,13 +1,9 @@
 # Pesto 1.0.0     
 [![nuget](https://img.shields.io/nuget/v/Pesto.PasswordStrengthEstimator.svg?label=nuget&colorB=brightgreen)](https://www.nuget.org/packages/Pesto.PasswordStrengthEstimator) [![Demo](https://img.shields.io/badge/Demo-brightgreen?style=flat)](https://www.pesto.software)    
-
-
-
-
 ## What Is Pesto?
-[Pesto](https://www.pesto.software) is a secure password strength estimator used for sensitive applications that require mutable data structures, blending features from [zxcvbn](https://dropbox.tech/security/zxcvbn-realistic-password-strength-estimation) and [Azure AD Password Protection](https://learn.microsoft.com/en-us/azure/active-directory/authentication/concept-password-ban-bad). Pesto was developed in C# for .NET applications, but can easily be ported to other programming languages. Pesto is just a password strength estimator (for now), so you will need to implement your own virtual keyboard and call the evaluate function on key press events.
+Pesto is a secure password strength estimator used for sensitive applications that require mutable data structures, blending features from [zxcvbn](https://dropbox.tech/security/zxcvbn-realistic-password-strength-estimation) and [Azure AD Password Protection](https://learn.microsoft.com/en-us/azure/active-directory/authentication/concept-password-ban-bad). Pesto was developed in C# for .NET applications, but can easily be ported to other programming languages. Pesto is just a password strength estimator (for now), so you will need to implement your own virtual keyboard and call the evaluate function on key press events.
 
-## The Legend of Pesto
+## The Legend Of Pesto
 <p align="justify">
   <img src="https://github.com/aardev14/Pesto/assets/51981572/538e0cee-508a-49bd-9c2d-1f7e278506b6" alt="Pesto" width="384" align="right">
 
@@ -34,6 +30,8 @@ I created the algorithm by blending features from zxcbn and Azure AD Password Pr
 - https://github.com/dropbox/zxcvbn
 
 ## Getting Started
+### Try The Demo
+You can try Pesto before loading it into your project! I have built a demo application at www.pesto.software.
 ### Load Into Project
 #### Option #1: Add The NuGet Package
 1. Simply add the Nuget package [Pesto.PasswordStrengthEstimator](https://www.nuget.org/packages/Pesto.PasswordStrengthEstimator) to your project and you are ready to go! You can run the test project called PestoTest found in the [test](https://github.com/aardev14/Pesto/tree/main/test) folder if you want to try it out quickly.
@@ -45,7 +43,6 @@ I created the algorithm by blending features from zxcbn and Azure AD Password Pr
 1. Locate the [src](https://github.com/aardev14/Pesto/tree/main/src) folder found here and load in the following two files to your project: [Pesto.cs](https://github.com/aardev14/Pesto/blob/main/src/Pesto.cs) and [BadPasswords.csv](https://github.com/aardev14/Pesto/blob/main/src/BannedWords.csv).
 2. Change the properties of the BadPasswords.csv file to **Build Action: Embedded Resource** and **Copy to output directory: Do not copy**.
 3. Copy the Resource ID of BadPasswords.csv under Properties. You will need to replace the placeholder text in the Pesto.Init() function definition where it says *"[RESOURCE-ID-GOES-HERE]"*.
-
 
 ### Initialize
 Call this function when your application launches. The BadPassword.csv file will be loaded into a list to be used by the evaluate function. Make sure the file is configured properly in your project as explained above. Here is an example:
