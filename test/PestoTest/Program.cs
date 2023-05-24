@@ -27,7 +27,7 @@ using PestoNet;
 using PestoTests;
 
 //Awaken the magic of Pesto.
-Pesto.Init(); //Pass in the resource ID of the BannedWords.csv file.
+Pesto.Init(); 
 
 //Say "Presto Pesto!" and Pesto appears!
 Console.WriteLine("Pesto:");
