@@ -74,14 +74,14 @@ int pestoScore = 0;
 
 using (var pesto = new Pesto())
 {
-    pestoScore = pesto.Evaluate(password, matchPoints, minChars, true, true, true, true, false);
+    pestoScore = pesto.Evaluate(password, matchPoints, minimumLength, true, true, true, true, false);
 }
 ```
 
 ## The Algorithm
 
 ### Initialize
-1. **Normalize List**: When the application starts, it load all words from the banned word list with 3 or more characters. It creates the new list (no duplicates) by using all normalized words for each word. This means removing all Leetspeak and making every word lowercase. This list is static so that all future instances of Pesto can use the normalized list when evaluating a password.
+1. **Normalize List**: When the application starts, it loads all words from the banned word list with 3 or more characters. It creates the new list (no duplicates) by using all normalized words for each word. This means removing all Leetspeak and making every word lowercase. This list is static so that all future instances of Pesto can use the normalized list when evaluating a password.
 2. **Order List**: Order the list in descending order by word length. This is important for how the algorithm checks for bad passwords. It prioritizes finding the longer words that exist in the password.
 
 ### Evaluate
@@ -161,7 +161,7 @@ Very strong settings and robust passwords require Pesto's keen intellect and cau
 #### Example
 *Offline Application with Brute Force Potential (Minimum 16 Characters)*
 
-An offline password manager like KeePass. This application is often used to store all kinds of passwords, from social media to bank accounts. It uses a master password to generate encryption keys that secure the stored data. If the database were stolen or leaked, the strength of the master password would be critical in preventing a successful offline brute force or dictionary attack. Hence, a 16-character minimum password is required, which provides significantly more combinations and resistance against attacks.
+An offline password manager like KeePass. This application is often used to store all kinds of passwords, from social media to bank accounts. It uses a master password to generate encryption keys that secure the stored data. If the database were stolen or leaked, the strength of the master password would be critical in preventing a successful offline brute force or dictionary attack. Hence, a 16-character minimum password should be required, which provides significantly more combinations and resistance against attacks.
 
 ### 4. Fascinated Pesto
 Call `Evaluate(password, 5, 20, true, true, true, true, false)`
@@ -231,6 +231,6 @@ The bad password list used in Pesto includes [data](https://github.com/dropbox/z
 - https://bitwarden.com/blog/how-long-should-my-password-be/
 - https://blog.lastpass.com/2022/01/how-often-should-you-change-your-master-password/
 
-Pesto is free, open source software. I will continue to reveal the magical powers of Pesto (more features) in future releases. If you found it helpful for your project...I always appreciate a ZEC donation to help keep it going! :)
+Pesto is free, open source software. I will continue to reveal the magical powers of Pesto (more features) in future releases. If you found it helpful for your project... I always appreciate a ZEC donation to help keep it going! :)
 
 ![pestozec](https://github.com/aardev14/Pesto/assets/51981572/db168b5f-8347-4f8b-93d6-1cb643635ded)
