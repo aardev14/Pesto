@@ -22,7 +22,7 @@ Pesto is a magical talking parrot who can be called upon for his password streng
 1. **Fuzzy** - Pesto, like all parrots, has fuzzy feathers! This password strength estimator tracks fuzz (1 edit distance) to find bad passwords.
 2. **Rude** - Pesto has quite the mouth on him and is known for having a lot of bad words in his vocabulary! This password strength estimator matches your password against a list of "bad" words (bad passwords).
 3. **Protective** - Pesto is always protective of the villagers! This password strength estimator is used to ensure a high quality password is chosen. It also has flexible parameters to provide different levels of protection!
-4. **Magical** - Pesto is a magical parrot who has will come to you when called. His presence is mutable, as he can never be found until he is called again. This magical password strength estimator will only store your password in character arrays (mutable) that are zeroed out. It never stores data as a string (immutable).
+4. **Magical** - Pesto is a magical parrot who will come to you when called. His presence is mutable, as he can never be found until he is called again. This magical password strength estimator will only store your password in character arrays (mutable) that are zeroed out. It never stores data as a string (immutable).
 5. **Reliable** - Pesto may be a rude parrot, but he knows his stuff and is only one call away! He can rate your password in just a few milliseconds. This password strength estimator is a simple, reliable tool for all applications that require a simple and secure password strength estimator. 
 ## The Design
 I created the algorithm by blending features from zxcbn and Azure AD Password Protection: 
